@@ -80,7 +80,11 @@
 <li><a href="#GetStartedProgramming-RemarkCommand">A.2. Creating a new command: <code>remark</code></a></li>
 </ul>
 </li>
-<li><a href="#product-scope">Appendix B: Product Scope</a></li>
+<li><a href="#product-scope">Appendix B: Product Scope</a>
+<ul class="sectlevel2">
+<li><a href="#feature-contribution">B.1. Feature Contribution</a></li>
+</ul>
+</li>
 <li><a href="#user-stories">Appendix C: User Stories</a></li>
 <li><a href="#use-cases">Appendix D: Use Cases</a>
 <ul class="sectlevel2">
@@ -1929,6 +1933,89 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="paragraph">
 <p><strong>Value proposition</strong>: manage contacts faster than a typical mouse/GUI driven app</p>
 </div>
+<div class="sect2">
+<h3 id="feature-contribution"><a class="link" href="#feature-contribution">B.1. Feature Contribution</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>AddTuteeCommand</strong> [Major Enhancement]</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>As the user of this application is the tutor, he or she will need to add the tutees' contact details.
+Furthermore, tutee contacts should not be mixed with the non-tutee contacts so that all the contacts are organized and can be managed easily.
+Therefore, AddTuteeCommand is used to add only the tutees' contact details</p>
+</div>
+<div class="paragraph">
+<p>The AddTuteeCommand is an extension of the Undoable Command, which is part of the Logic Component.
+As this command involves the altering of the application&#8217;s state, the ability to undo and redo will make this command more user-friendly and efficient.
+(e.g list command + delete command vs undo command).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/LogicCommandClassDiagram.png" alt="LogicCommandClassDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>From the diagram shown above, instead of extending abstract Command class directly, AddTuteeCommand will extend the abstract Undoable Command class like clearCommand and AddCommand.
+This allows AddTuteeCommand to use or override the state saving codes inside the Undoable Command class as shown below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">abstract</span> <span class="type">class</span> <span class="class">UndoableCommand</span> <span class="directive">extends</span> Command {
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> CommandResult execute() {
+        <span class="comment">// ... undo logic ...</span>
+
+        executeUndoableCommand();
+    }
+}
+
+<span class="directive">public</span> <span class="type">class</span> <span class="class">AddTuteeCommand</span> <span class="directive">extends</span> UndoableCommand {
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> CommandResult executeUndoableCommand() {
+        <span class="comment">// ... add tutee logic ...</span>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the addtutee operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddTuteeCommandSequenceDiagram.png" alt="AddTuteeCommandSequenceDiagram" width="800">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If there is already someone, either tutee or non tutee, in the contact list, DuplicatePersonException will be thrown.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Alternatives</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Modify the current AddCommand:</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The AddCommand will be able to read 2 different user inputs, either "add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 t/friends t/owesMoney"
+or "add tutee n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 s/Science g/B+ edu/Secondary sch/HelloWord Secondary School".
+The input string will be parsed at AddCommandParser. Tutee and non-tutee contacts will then be added similarly as the AddTuteeCommand and the original AddCommand.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1998,13 +2085,13 @@ for <code>RemarkCommandParser</code>.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">tutor</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">tag the students with their current education level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tag the tutee with their current education level</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">adjust my teaching accordingly</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">tutor</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">edit student&#8217;s details</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">edit tutee&#8217;s details</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">stay updated</p></td>
 </tr>
 <tr>
@@ -2034,8 +2121,8 @@ for <code>RemarkCommandParser</code>.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">tutor</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">categorize a contact as my student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">separate my student from my personal contact lists</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">categorize a contact as my tutee</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">separate my tutee from my personal contact lists</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
@@ -2071,36 +2158,36 @@ for <code>RemarkCommandParser</code>.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">tutor</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integrate my calendar with the school&#8217;s calendar</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">prevent clashes between tuition schedule and students' school commitment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prevent clashes between tuition schedule and tutees' school commitment</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">tutor with many students</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">send messages to all students that meet a certain description</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">inform students together and not one by one</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tutor with many tutees</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">send messages to all tutees that meet a certain description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inform tutees together and not one by one</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">tutor</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add subject grade of the students</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add subject grade of the tutees</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">keep track of his progress</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">tutor</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">list students coming from the same school</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list tutees coming from the same school</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">so that I can gather and spread useful information among these students.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">tutor</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">list students based on their grades</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">give more tuition to students who are doing badly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list tutees based on their grades</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">give more tuition to tutees who are doing badly</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">tutor</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">give assignments(done and to-be-done) to a student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">give assignments(done and to-be-done) to a tutee</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">track his work and progress easily</p></td>
 </tr>
 <tr>
@@ -2112,13 +2199,13 @@ for <code>RemarkCommandParser</code>.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">tutor</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">take note of the name of my student&#8217;s school teachers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">take note of the name of my tutee&#8217;s school teachers</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">adjust my teaching according to the school teacher.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">tutor</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">insert my student&#8217;s photo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">insert my tutee&#8217;s photo</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
@@ -2733,7 +2820,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-17 00:43:37 UTC
+Last updated 2018-03-17 15:21:08 UTC
 </div>
 </div>
 </body>
