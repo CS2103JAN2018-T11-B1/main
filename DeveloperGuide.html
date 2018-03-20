@@ -5,20 +5,20 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.6.1">
-<title>AddressBook Level 4 - Developer Guide</title>
+<title>TuitionConnect (TC) - Developer Guide</title>
 <link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css">
 </head>
 <body class="article">
 <div id="header">
-<h1>AddressBook Level 4 - Developer Guide</h1>
+<h1>TuitionConnect (TC) - Developer Guide</h1>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>Team MarvelousBook</code>      Since: <code>Feb 2018</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -88,10 +88,11 @@
 <li><a href="#user-stories">Appendix C: User Stories</a></li>
 <li><a href="#use-cases">Appendix D: Use Cases</a>
 <ul class="sectlevel2">
-<li><a href="#use-case-uc02-add-a-tuition-schedule">D.1. Use case: UC02 - Add a tuition schedule</a></li>
-<li><a href="#use-case-uc03-add-a-personal-schedule">D.2. Use case: UC03 - Add a personal schedule</a></li>
-<li><a href="#use-case-uc04-set-a-contact-as-a-tutee">D.3. Use case: UC04 - Set a contact as a tutee</a></li>
-<li><a href="#use-case-uc05-viewing-schedule-within-a-date-range">D.4. Use case: UC05 - Viewing schedule within a date range</a></li>
+<li><a href="#use-case-uc01-delete-person">D.1. Use case: UC01 - Delete person</a></li>
+<li><a href="#use-case-uc02-add-a-tuition-schedule">D.2. Use case: UC02 - Add a tuition schedule</a></li>
+<li><a href="#use-case-uc03-add-a-personal-schedule">D.3. Use case: UC03 - Add a personal schedule</a></li>
+<li><a href="#use-case-uc04-set-a-contact-as-a-tutee">D.4. Use case: UC04 - Set a contact as a tutee</a></li>
+<li><a href="#use-case-uc05-viewing-schedule-within-a-date-range">D.5. Use case: UC05 - Viewing schedule within a date range</a></li>
 </ul>
 </li>
 <li><a href="#non-functional-requirements">Appendix E: Non Functional Requirements</a></li>
@@ -1935,6 +1936,35 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 <div class="sect2">
 <h3 id="feature-contribution"><a class="link" href="#feature-contribution">B.1. Feature Contribution</a></h3>
+<div class="paragraph">
+<p><strong>Raymond</strong>:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Support for Tasks (Major)</strong>:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>Delete task command</strong>: Allows tutors to delete tasks.</p>
+</li>
+<li>
+<p><strong>Edit task command</strong>: Tutors are allowed to edit their tasks, if necessary.</p>
+</li>
+<li>
+<p><strong>View task command</strong>: Tutors are able to view their own task.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>With this added support for tasks, tutors will be able to customise their schedules more easily by some of these commands.</p>
+</div>
+<div class="paragraph">
+<p><strong>Chih Tun</strong>:</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1944,8 +1974,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 <div class="paragraph">
 <p>As the user of this application is the tutor, he or she will need to add the tutees' contact details.
-Furthermore, tutee contacts should not be mixed with the non-tutee contacts so that all the contacts are organized and can be managed easily.
-Therefore, AddTuteeCommand is used to add only the tutees' contact details</p>
+Furthermore, tutee contacts should not be mixed with the non-tutee contacts so that all the contacts are organized and can be managed easily. Therefore, AddTuteeCommand is used to add only the tutees' contact details.</p>
 </div>
 <div class="paragraph">
 <p>The AddTuteeCommand is an extension of the Undoable Command, which is part of the Logic Component.
@@ -2014,6 +2043,104 @@ If there is already someone, either tutee or non tutee, in the contact list, Dup
 <p>The AddCommand will be able to read 2 different user inputs, either "add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 t/friends t/owesMoney"
 or "add tutee n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 s/Science g/B+ edu/Secondary sch/HelloWord Secondary School".
 The input string will be parsed at AddCommandParser. Tutee and non-tutee contacts will then be added similarly as the AddTuteeCommand and the original AddCommand.</p>
+</div>
+<div class="paragraph">
+<p><strong>Buyung</strong>:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>ViewFiltered &amp; View Sort</strong> [Major Enhancement]
+This command lets tutors to view a filtered list of their stored tasks. As there are 2 kinds of tasks implemented in Tuition Connect,
+personal and tuition task, each kind of task has its own filter category.
+Within the current version, Tutors are able to utilize one of these filtering.
+First, tutors can filter their tasks by month, hence, allowing tutors to view all of their task within the specified month.
+Second, tutors can filter their tutee by the tutee&#8217;s school, grade or subject.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>For the purpose of illustrating the implementation, this sequence diagram depicts the procedure when
+user desires to view a list of their tutee after being filtered by grade.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/viewFiltered-sequence-diagram.jpeg" alt="viewFiltered sequence diagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>This view filter command is created with the purpose of simplifying tutor&#8217;s life in navigating through their packed schedule.
+By having this command, tutors are able to locate their desired tasks easily.</p>
+</div>
+<div class="paragraph">
+<p>Within future version, this command would have a sorting capability. The filtered tutee
+shall be displayed after their name is sorted lexicographically.</p>
+</div>
+<div class="paragraph">
+<p><strong>Anas</strong>:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>CompleteCommand</strong> [Major Enhancement]</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>An important feature for the tutor is the ability to manage financial records that pertain to his/her work.
+To that end, the CompleteCommand functionality is implemented. This feature allows the user to update the amount
+of work completed and the financial compensation he/she is entitled based on the units of work completed.</p>
+</div>
+<div class="paragraph">
+<p>The CompleteCommand is an extension of the Undoable Command, which is part of the logic component.
+Much like many other commands in this application, the CompleteCommand was chosen to extend the undoable command, instead of the command, class in order
+to provide users with the flexibility to undo any unwanted commands. In summary, the CompleteCommand will extend the undoable command class which, itself,
+extends the command class.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">abstract</span> <span class="type">class</span> <span class="class">UndoableCommand</span> <span class="directive">extends</span> Command {
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> CommandResult execute() {
+        <span class="comment">// ... undo logic ...</span>
+
+        executeUndoableCommand();
+    }
+}
+
+<span class="directive">public</span> <span class="type">class</span> <span class="class">CompleteCommand</span> <span class="directive">extends</span> UndoableCommand {
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> CommandResult executeUndoableCommand() {
+        <span class="comment">// ... add Complete logic ...</span>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note: The above snippet will be updated when the complete code for this command is completed.</p>
+</div>
+<div class="paragraph">
+<p>The following diagram demonstrates the functioning of the CompleteCommand operation:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/LogicCompleteCommandClassDiagram.jpg" alt="LogicCompleteCommandClassDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Essentially, the complete command will work by receiving an object of type task as its parameter and "marking" this task as completed.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>ViewTutee</strong> [Minor(?) Enhancement]</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This feature allows the tutor to look at his/her current list of students. The idea behind this feature is for it to allow the tutor to
+see all the potential subscribers to his/her lessons and, by doing so, allowing them to associate these tutees with user-generated tasks.
+This feature is inspired by the "resources" concept in Microsoft Project whereby a "resource" is assigned to a work task.</p>
 </div>
 </div>
 </div>
@@ -2218,7 +2345,8 @@ The input string will be parsed at AddCommandParser. Tutee and non-tutee contact
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is the <code>TuitionConnect Application (TC)</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-uc01-delete-person" class="discrete">Use case: UC01 - Delete person</h3>
+<div class="sect2">
+<h3 id="use-case-uc01-delete-person"><a class="link" href="#use-case-uc01-delete-person">D.1. Use case: UC01 - Delete person</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2267,8 +2395,9 @@ The input string will be parsed at AddCommandParser. Tutee and non-tutee contact
 </li>
 </ul>
 </div>
+</div>
 <div class="sect2">
-<h3 id="use-case-uc02-add-a-tuition-schedule"><a class="link" href="#use-case-uc02-add-a-tuition-schedule">D.1. Use case: UC02 - Add a tuition schedule</a></h3>
+<h3 id="use-case-uc02-add-a-tuition-schedule"><a class="link" href="#use-case-uc02-add-a-tuition-schedule">D.2. Use case: UC02 - Add a tuition schedule</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2374,7 +2503,7 @@ Use case ends.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-uc03-add-a-personal-schedule"><a class="link" href="#use-case-uc03-add-a-personal-schedule">D.2. Use case: UC03 - Add a personal schedule</a></h3>
+<h3 id="use-case-uc03-add-a-personal-schedule"><a class="link" href="#use-case-uc03-add-a-personal-schedule">D.3. Use case: UC03 - Add a personal schedule</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2447,7 +2576,7 @@ Use case ends.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-uc04-set-a-contact-as-a-tutee"><a class="link" href="#use-case-uc04-set-a-contact-as-a-tutee">D.3. Use case: UC04 - Set a contact as a tutee</a></h3>
+<h3 id="use-case-uc04-set-a-contact-as-a-tutee"><a class="link" href="#use-case-uc04-set-a-contact-as-a-tutee">D.4. Use case: UC04 - Set a contact as a tutee</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2524,7 +2653,7 @@ Use case ends.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-uc05-viewing-schedule-within-a-date-range"><a class="link" href="#use-case-uc05-viewing-schedule-within-a-date-range">D.4. Use case: UC05 - Viewing schedule within a date range</a></h3>
+<h3 id="use-case-uc05-viewing-schedule-within-a-date-range"><a class="link" href="#use-case-uc05-viewing-schedule-within-a-date-range">D.5. Use case: UC05 - Viewing schedule within a date range</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2820,7 +2949,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-17 15:21:08 UTC
+Last updated 2018-03-20 00:48:56 UTC
 </div>
 </div>
 </body>
