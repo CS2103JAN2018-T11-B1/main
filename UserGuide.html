@@ -36,16 +36,16 @@
 <li><a href="#locating-persons-by-name-or-number-code-find-code">3.6. Locating persons by name or number: <code>find</code></a></li>
 <li><a href="#deleting-a-person-code-delete-code">3.7. Deleting a person : <code>delete</code></a></li>
 <li><a href="#selecting-a-person-code-select-code">3.8. Selecting a person : <code>select</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.9. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.10. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.11. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.12. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.13. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.14. Saving the data</a></li>
-<li><a href="#delete-task-code-coming-in-v1-3-code">3.15. Delete task <code>[coming in v1.3]</code></a></li>
-<li><a href="#view-task-code-coming-in-v1-3-code">3.16. View task <code>[coming in v1.3]</code></a></li>
-<li><a href="#view-sort-code-coming-in-v1-2-code">3.17. View sort <code>[coming in v1.2]</code></a></li>
-<li><a href="#view-calender-code-coming-in-v1-3-code">3.18. View calender <code>[coming in v1.3]</code></a></li>
+<li><a href="#changing-calendar-view-page-time-unit-code-change-code">3.9. Changing calendar view page time unit: <code>change</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.10. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.11. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.12. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.13. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.15. Saving the data</a></li>
+<li><a href="#delete-task-code-coming-in-v1-3-code">3.16. Delete task <code>[coming in v1.3]</code></a></li>
+<li><a href="#view-task-code-coming-in-v1-3-code">3.17. View task <code>[coming in v1.3]</code></a></li>
+<li><a href="#view-sort-code-coming-in-v1-2-code">3.18. View sort <code>[coming in v1.2]</code></a></li>
 <li><a href="#update-tutee-fees-code-coming-in-v1-4-code">3.19. Update tutee fees <code>[coming in v1.4]</code></a></li>
 <li><a href="#complete-task-code-coming-in-v2-0-code">3.20. Complete task <code>[coming in v2.0]</code></a></li>
 <li><a href="#edit-task-code-coming-in-v2-0-code">3.21. Edit task <code>[coming in v2.0]</code></a></li>
@@ -434,7 +434,85 @@ Selects the 1st person in the results of the <code>f</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.9. Listing entered commands : <code>history</code></a></h3>
+<h3 id="changing-calendar-view-page-time-unit-code-change-code"><a class="link" href="#changing-calendar-view-page-time-unit-code-change-code">3.9. Changing calendar view page time unit: <code>change</code></a></h3>
+<div class="paragraph">
+<p>Changes the calendar&#8217;s view page into the time unit specified by you.
+Using Command Word:<br>
+Format: <code>change TIME_UNIT</code></p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 59%;">
+<colgroup>
+<col style="width: 48.8888%;">
+<col style="width: 51.1112%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Time Unit</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">d</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Day</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">w</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Week</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Month</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Year</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Default view page time unit is d.</p>
+</li>
+<li>
+<p>Command fails if current view page time unit is same as the user input time unit.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>change d</code> (command fails as current calendar view is already in day)</p>
+</li>
+<li>
+<p><code>change w</code> (changes calendar view to week)</p>
+</li>
+<li>
+<p><code>change m</code> (changes calendar view to month)</p>
+</li>
+<li>
+<p><code>change y</code> (changes calendar view to year)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.10. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Using Command Word:<br>
@@ -458,7 +536,7 @@ Format: <code>h</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.10. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.11. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
 Using Command Word:<br>
@@ -506,7 +584,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.11. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.12. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Using Command Word:<br>
@@ -541,7 +619,7 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.12. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.13. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br>
 Using Command Word:<br>
@@ -551,42 +629,35 @@ Format: <code>c</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.13. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.14. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.15. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-task-code-coming-in-v1-3-code"><a class="link" href="#delete-task-code-coming-in-v1-3-code">3.15. Delete task <code>[coming in v1.3]</code></a></h3>
+<h3 id="delete-task-code-coming-in-v1-3-code"><a class="link" href="#delete-task-code-coming-in-v1-3-code">3.16. Delete task <code>[coming in v1.3]</code></a></h3>
 <div class="paragraph">
 <p>Deletes an existing task.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-task-code-coming-in-v1-3-code"><a class="link" href="#view-task-code-coming-in-v1-3-code">3.16. View task <code>[coming in v1.3]</code></a></h3>
+<h3 id="view-task-code-coming-in-v1-3-code"><a class="link" href="#view-task-code-coming-in-v1-3-code">3.17. View task <code>[coming in v1.3]</code></a></h3>
 <div class="paragraph">
 <p>Views a list of tasks.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-sort-code-coming-in-v1-2-code"><a class="link" href="#view-sort-code-coming-in-v1-2-code">3.17. View sort <code>[coming in v1.2]</code></a></h3>
+<h3 id="view-sort-code-coming-in-v1-2-code"><a class="link" href="#view-sort-code-coming-in-v1-2-code">3.18. View sort <code>[coming in v1.2]</code></a></h3>
 <div class="paragraph">
 <p>Views a sorted list of people or task based on a user specified sorting criterion.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="view-calender-code-coming-in-v1-3-code"><a class="link" href="#view-calender-code-coming-in-v1-3-code">3.18. View calender <code>[coming in v1.3]</code></a></h3>
-<div class="paragraph">
-<p>Views the calender, which will display the month or week based on the user input.
-When viewing in week, timeline of each day of the week will be shown and task in a specific time slot will be shown.</p>
 </div>
 </div>
 <div class="sect2">
@@ -644,6 +715,8 @@ e.g. <code>find James Jake</code><br>
 * <strong>Help</strong> : <code>help</code><br>
 * <strong>Select</strong> : <code>select INDEX</code><br>
 e.g.<code>select 2</code><br>
+* <strong>Change</strong> : <code>change TIME_UNIT</code><br>
+e.g. <code>change w</code><br>
 * <strong>History</strong> : <code>history</code><br>
 * <strong>Undo</strong> : <code>undo</code><br>
 * <strong>Redo</strong> : <code>redo</code><br></p>
@@ -672,7 +745,7 @@ e.g.<code>s 2</code><br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-25 02:13:59 UTC
+Last updated 2018-03-28 08:40:33 UTC
 </div>
 </div>
 </body>
