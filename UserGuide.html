@@ -33,23 +33,24 @@
 <li><a href="#adding-a-tutee-code-addtutee-code">3.3. Adding a tutee: <code>addtutee</code></a></li>
 <li><a href="#listing-all-persons-code-list-code">3.4. Listing all persons : <code>list</code></a></li>
 <li><a href="#editing-a-person-code-edit-code">3.5. Editing a person : <code>edit</code></a></li>
-<li><a href="#locating-persons-by-name-or-number-code-find-code">3.6. Locating persons by name or number: <code>find</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">3.7. Deleting a person : <code>delete</code></a></li>
-<li><a href="#selecting-a-person-code-select-code">3.8. Selecting a person : <code>select</code></a></li>
-<li><a href="#changing-calendar-view-page-time-unit-code-change-code">3.9. Changing calendar view page time unit: <code>change</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.10. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.11. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.12. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.13. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.15. Saving the data</a></li>
-<li><a href="#delete-task-code-coming-in-v1-3-code">3.16. Delete task <code>[coming in v1.3]</code></a></li>
-<li><a href="#view-task-code-coming-in-v1-3-code">3.17. View task <code>[coming in v1.3]</code></a></li>
-<li><a href="#view-sort-code-coming-in-v1-2-code">3.18. View sort <code>[coming in v1.2]</code></a></li>
-<li><a href="#update-tutee-fees-code-coming-in-v1-4-code">3.19. Update tutee fees <code>[coming in v1.4]</code></a></li>
-<li><a href="#complete-task-code-coming-in-v2-0-code">3.20. Complete task <code>[coming in v2.0]</code></a></li>
-<li><a href="#edit-task-code-coming-in-v2-0-code">3.21. Edit task <code>[coming in v2.0]</code></a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.22. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#locating-persons-by-category-code-find-code">3.6. Locating persons by category: <code>find</code></a></li>
+<li><a href="#sorting-persons-by-category-code-sort-code">3.7. Sorting persons by category: <code>sort</code></a></li>
+<li><a href="#deleting-a-person-code-delete-code">3.8. Deleting a person : <code>delete</code></a></li>
+<li><a href="#selecting-a-person-code-select-code">3.9. Selecting a person : <code>select</code></a></li>
+<li><a href="#changing-calendar-view-page-time-unit-code-change-code">3.10. Changing calendar view page time unit: <code>change</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.11. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.12. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.13. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.14. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.16. Saving the data</a></li>
+<li><a href="#delete-task-code-coming-in-v1-3-code">3.17. Delete task <code>[coming in v1.3]</code></a></li>
+<li><a href="#view-task-code-coming-in-v1-3-code">3.18. View task <code>[coming in v1.3]</code></a></li>
+<li><a href="#view-sort-code-coming-in-v1-2-code">3.19. View sort <code>[coming in v1.2]</code></a></li>
+<li><a href="#update-tutee-fees-code-coming-in-v1-4-code">3.20. Update tutee fees <code>[coming in v1.4]</code></a></li>
+<li><a href="#complete-task-code-coming-in-v2-0-code">3.21. Complete task <code>[coming in v2.0]</code></a></li>
+<li><a href="#edit-task-code-coming-in-v2-0-code">3.22. Edit task <code>[coming in v2.0]</code></a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.23. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -295,13 +296,13 @@ Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all 
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-persons-by-name-or-number-code-find-code"><a class="link" href="#locating-persons-by-name-or-number-code-find-code">3.6. Locating persons by name or number: <code>find</code></a></h3>
+<h3 id="locating-persons-by-category-code-find-code"><a class="link" href="#locating-persons-by-category-code-find-code">3.6. Locating persons by category: <code>find</code></a></h3>
 <div class="paragraph">
-<p>Finds persons whose names or numebers contain any of the given keywords.<br>
+<p>Finds persons or tutees whose specified category contain any of the given keywords.<br>
 Using Command Word:<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code><br>
+Format: <code>find CATEGORY KEYWORD [MORE_KEYWORDS]</code><br>
 Using Command Alias:<br>
-Format: <code>f KEYWORD [MORE_KEYWORDS]</code><br></p>
+Format: <code>f CATEGORY KEYWORD [MORE_KEYWORDS]</code><br></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -314,16 +315,36 @@ Format: <code>f KEYWORD [MORE_KEYWORDS]</code><br></p>
 <p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
 </li>
 <li>
-<p>Only the name and the number is searched.</p>
+<p>There are 5 categories to pick:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1. name</p>
 </li>
 <li>
-<p>A match is displayed only when the number is entered correctly and in full.</p>
+<p>2. edu* (for education level)</p>
+</li>
+<li>
+<p>3. grade*</p>
+</li>
+<li>
+<p>4. school*</p>
+</li>
+<li>
+<p>5. subject*</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Categories marked with * are only owned by tutees.</p>
 </li>
 <li>
 <p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
 </li>
 <li>
-<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search).
+e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
 </li>
 </ul>
 </div>
@@ -335,18 +356,86 @@ Format: <code>f KEYWORD [MORE_KEYWORDS]</code><br></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>find John</code><br>
-Returns <code>john</code> and <code>John Doe</code></p>
+<p><code>find Name John</code><br>
+Lists <code>john</code> and <code>John Doe</code></p>
 </li>
 <li>
-<p><code>f Betsy Tim John</code><br>
-Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+<p><code>f name Betsy Tim John</code><br>
+Lists any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+</li>
+<li>
+<p><code>find grade B B+</code><br>
+Lists all tutee with grade <code>B</code> and <code>B+</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.7. Deleting a person : <code>delete</code></a></h3>
+<h3 id="sorting-persons-by-category-code-sort-code"><a class="link" href="#sorting-persons-by-category-code-sort-code">3.7. Sorting persons by category: <code>sort</code></a></h3>
+<div class="paragraph">
+<p>Sorts your displayed contact list according to a category in an ascending order (lexicographically).<br>
+Using Command Word:<br>
+Format: <code>sort CATEGORY</code><br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Sorting category types is case insensitive.
+e.g both <code>sort name</code> and <code>sort Name</code> works fine.</p>
+</li>
+<li>
+<p>The sorting is case insensitive.
+e.g In a case where <code>sort name</code> is writeen, `angel' is diplayed before 'Ben'.</p>
+</li>
+<li>
+<p>The displayed contact list will be sorted; not the entire contact list.</p>
+</li>
+<li>
+<p>There are 5 categories to pick:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1. name</p>
+</li>
+<li>
+<p>2. edu_level*</p>
+</li>
+<li>
+<p>3. grade*</p>
+</li>
+<li>
+<p>4. school*</p>
+</li>
+<li>
+<p>5. subject*</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Categories marked with * are only owned by tutees. If one of them is selected, all non-tutees will be displayed
+last after their names are sorted lexicographically.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sort Name</code><br>
+sorts by name lexicographically.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.8. Deleting a person : <code>delete</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified person from the address book.<br>
 Using Command Word:<br>
@@ -390,7 +479,7 @@ Deletes the 1st person in the results of the <code>f</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">3.8. Selecting a person : <code>select</code></a></h3>
+<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">3.9. Selecting a person : <code>select</code></a></h3>
 <div class="paragraph">
 <p>Selects the person identified by the index number used in the last person listing.<br>
 Using Command Word:<br>
@@ -434,7 +523,7 @@ Selects the 1st person in the results of the <code>f</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="changing-calendar-view-page-time-unit-code-change-code"><a class="link" href="#changing-calendar-view-page-time-unit-code-change-code">3.9. Changing calendar view page time unit: <code>change</code></a></h3>
+<h3 id="changing-calendar-view-page-time-unit-code-change-code"><a class="link" href="#changing-calendar-view-page-time-unit-code-change-code">3.10. Changing calendar view page time unit: <code>change</code></a></h3>
 <div class="paragraph">
 <p>Changes the calendar&#8217;s view page into the time unit specified by you.
 Using Command Word:<br>
@@ -512,7 +601,7 @@ Format: <code>change TIME_UNIT</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.10. Listing entered commands : <code>history</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.11. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Using Command Word:<br>
@@ -536,7 +625,7 @@ Format: <code>h</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.11. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.12. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
 Using Command Word:<br>
@@ -584,7 +673,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.12. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.13. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Using Command Word:<br>
@@ -619,7 +708,7 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.13. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.14. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br>
 Using Command Word:<br>
@@ -629,57 +718,57 @@ Format: <code>c</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.15. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.16. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-task-code-coming-in-v1-3-code"><a class="link" href="#delete-task-code-coming-in-v1-3-code">3.16. Delete task <code>[coming in v1.3]</code></a></h3>
+<h3 id="delete-task-code-coming-in-v1-3-code"><a class="link" href="#delete-task-code-coming-in-v1-3-code">3.17. Delete task <code>[coming in v1.3]</code></a></h3>
 <div class="paragraph">
 <p>Deletes an existing task.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-task-code-coming-in-v1-3-code"><a class="link" href="#view-task-code-coming-in-v1-3-code">3.17. View task <code>[coming in v1.3]</code></a></h3>
+<h3 id="view-task-code-coming-in-v1-3-code"><a class="link" href="#view-task-code-coming-in-v1-3-code">3.18. View task <code>[coming in v1.3]</code></a></h3>
 <div class="paragraph">
 <p>Views a list of tasks.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-sort-code-coming-in-v1-2-code"><a class="link" href="#view-sort-code-coming-in-v1-2-code">3.18. View sort <code>[coming in v1.2]</code></a></h3>
+<h3 id="view-sort-code-coming-in-v1-2-code"><a class="link" href="#view-sort-code-coming-in-v1-2-code">3.19. View sort <code>[coming in v1.2]</code></a></h3>
 <div class="paragraph">
 <p>Views a sorted list of people or task based on a user specified sorting criterion.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="update-tutee-fees-code-coming-in-v1-4-code"><a class="link" href="#update-tutee-fees-code-coming-in-v1-4-code">3.19. Update tutee fees <code>[coming in v1.4]</code></a></h3>
+<h3 id="update-tutee-fees-code-coming-in-v1-4-code"><a class="link" href="#update-tutee-fees-code-coming-in-v1-4-code">3.20. Update tutee fees <code>[coming in v1.4]</code></a></h3>
 <div class="paragraph">
 <p>Updates the remaining balance of the fees of a specific tutee after he or she has paid.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="complete-task-code-coming-in-v2-0-code"><a class="link" href="#complete-task-code-coming-in-v2-0-code">3.20. Complete task <code>[coming in v2.0]</code></a></h3>
+<h3 id="complete-task-code-coming-in-v2-0-code"><a class="link" href="#complete-task-code-coming-in-v2-0-code">3.21. Complete task <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Marks a task as completed. If the task is tuition, fees will automatically be added to the tutee&#8217;s fee balance.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="edit-task-code-coming-in-v2-0-code"><a class="link" href="#edit-task-code-coming-in-v2-0-code">3.21. Edit task <code>[coming in v2.0]</code></a></h3>
+<h3 id="edit-task-code-coming-in-v2-0-code"><a class="link" href="#edit-task-code-coming-in-v2-0-code">3.22. Edit task <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Edits date, time, duration or description of an existing task.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.22. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.23. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -745,7 +834,7 @@ e.g.<code>s 2</code><br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-28 08:40:33 UTC
+Last updated 2018-03-29 01:32:47 UTC
 </div>
 </div>
 </body>
