@@ -4,6 +4,7 @@
 /**
  * Lists all tasks in the application to the user.
  */
+
 public class ListTaskCommand extends Command {
 
     public static final String COMMAND_WORD = "listTask";
