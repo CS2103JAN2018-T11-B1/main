@@ -44,10 +44,11 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#add-tutee-command">3.1. Add tutee Command</a></li>
+<li><a href="#undo-redo-feature">3.2. Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.4. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -589,9 +590,118 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.1. Undo/Redo feature</a></h3>
+<h3 id="add-tutee-command"><a class="link" href="#add-tutee-command">3.1. Add tutee Command</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>As the user of this application is the tutor, he or she will need to add the tutees' contact details.
+Furthermore, tutee contacts should not be mixed with the non-tutee contacts so that all the contacts are organized and can be managed easily. Therefore, AddTuteeCommand is used to add only the tutees' contact details.</p>
+</div>
+<div class="paragraph">
+<p>The AddTuteeCommand is an extension of the Undoable Command, which is part of the Logic Component.
+As this command involves the altering of the application&#8217;s state, the ability to undo and redo will make this command more user-friendly and efficient.
+(e.g list command + delete command vs undo command).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/LogicCommandClassDiagram.png" alt="LogicCommandClassDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>From the diagram shown above, instead of extending abstract Command class directly, AddTuteeCommand will extend the abstract Undoable Command class like clearCommand and AddCommand.
+This allows AddTuteeCommand to use or override the state saving codes inside the Undoable Command class as shown below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">abstract</span> <span class="type">class</span> <span class="class">UndoableCommand</span> <span class="directive">extends</span> Command {
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> CommandResult execute() {
+        <span class="comment">// ... undo logic ...</span>
+
+        executeUndoableCommand();
+    }
+}
+
+<span class="directive">public</span> <span class="type">class</span> <span class="class">AddTuteeCommand</span> <span class="directive">extends</span> UndoableCommand {
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> CommandResult executeUndoableCommand() {
+        <span class="comment">// ... add tutee logic ...</span>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the addtutee operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddTuteeCommandSequenceDiagram.png" alt="AddTuteeCommandSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>As shown in the sequence diagram, after Tutee object has been created, it is being passed to Model. Model manager will add the Tutee object to the person list in TuitionConnect.
+By having a combined list of tutee and non-tutee, we can manage the contacts using one command, such as delete command, instead of having 1 command for tutee and 1 command for non-tutee.
+The combined list is achieved through the use of inheritance, whereby Tutee class inherits the Person class as shown in the diagram below.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/TuteeClassDiagram.jpg" alt="TuteeClassDiagram" width="800"></span></p>
+</div>
+<div class="paragraph">
+<p>Since a tutee is a person, we can carried out inheritance by extending the Person class.
+Both Tutee and Person class objects have the same fields such as Name, Phone, Email and Address.
+However, Tutee class object has additional fields such as Subject, Grade, EducationLevel and School, which are irrelevant to a Person class object (non-tutee).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If there is already someone, either tutee or non-tutee, in the contact list, DuplicatePersonException will be thrown.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">3.1.2. Design Consideration</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Create a new command "addtutee" and a tutee class, which extends person class</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Non-tutee will not have any detail that is specific to tutee only. This saves memory especially when there are numerous non-tutee objects.</p>
+</li>
+<li>
+<p>Cons: A tutee cannot simply convert into a non-tutee when tutor stops teaching him/her. Tutor has to delete the tutee and add him/her again as a non-tutee.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Modify the current AddCommand and add more fields to the person class</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Features can be implemented easily without modifying much to the existing code.</p>
+</li>
+<li>
+<p>Cons: Non-tutee object creates unrelated field objects such as "subject" and "school" and these objects will waste the memory space. This problem will be significant when there are a lot of non-tutee objects.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.2. Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by an <code>UndoRedoStack</code>, which resides inside <code>LogicManager</code>. It supports undoing and redoing of commands that modifies the state of the address book (e.g. <code>add</code>, <code>edit</code>). Such commands will inherit from <code>UndoableCommand</code>.</p>
 </div>
@@ -744,7 +854,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-code-undoablecommand-code"><a class="link" href="#aspect-implementation-of-code-undoablecommand-code">Aspect: Implementation of <code>UndoableCommand</code></a></h5>
 <div class="ulist">
@@ -881,20 +991,20 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -925,7 +1035,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1965,84 +2075,30 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="paragraph">
 <p><strong>Chih Tun</strong>:</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major Enhancement</strong>: Integrated a calendar into TuitionConnect using third party software, CalendarFX.
+Configured TuitionConnect&#8217;s main window to display day, week, month or year view of the calendar. A daily agenda list is showed together with the calendar&#8217;s day view.
+In addition, the calendar reflects any changes to the schedule such as adding of a new task or deleting an existing task.</p>
+</li>
+<li>
+<p><strong>Minor Enhancement</strong>:</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><strong>AddTuteeCommand</strong> [Major Enhancement]</p>
+<p>Created command to add a new tutee.</p>
 </li>
-</ol>
-</div>
-<div class="paragraph">
-<p>As the user of this application is the tutor, he or she will need to add the tutees' contact details.
-Furthermore, tutee contacts should not be mixed with the non-tutee contacts so that all the contacts are organized and can be managed easily. Therefore, AddTuteeCommand is used to add only the tutees' contact details.</p>
-</div>
-<div class="paragraph">
-<p>The AddTuteeCommand is an extension of the Undoable Command, which is part of the Logic Component.
-As this command involves the altering of the application&#8217;s state, the ability to undo and redo will make this command more user-friendly and efficient.
-(e.g list command + delete command vs undo command).</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/LogicCommandClassDiagram.png" alt="LogicCommandClassDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>From the diagram shown above, instead of extending abstract Command class directly, AddTuteeCommand will extend the abstract Undoable Command class like clearCommand and AddCommand.
-This allows AddTuteeCommand to use or override the state saving codes inside the Undoable Command class as shown below.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">abstract</span> <span class="type">class</span> <span class="class">UndoableCommand</span> <span class="directive">extends</span> Command {
-    <span class="annotation">@Override</span>
-    <span class="directive">public</span> CommandResult execute() {
-        <span class="comment">// ... undo logic ...</span>
-
-        executeUndoableCommand();
-    }
-}
-
-<span class="directive">public</span> <span class="type">class</span> <span class="class">AddTuteeCommand</span> <span class="directive">extends</span> UndoableCommand {
-    <span class="annotation">@Override</span>
-    <span class="directive">public</span> CommandResult executeUndoableCommand() {
-        <span class="comment">// ... add tutee logic ...</span>
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the addtutee operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/AddTuteeCommandSequenceDiagram.png" alt="AddTuteeCommandSequenceDiagram" width="800">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If there is already someone, either tutee or non tutee, in the contact list, DuplicatePersonException will be thrown.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Alternatives</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
 <li>
-<p>Modify the current AddCommand:</p>
+<p>Implemented tutee, tuition, personal task classes and relevant field classes to support all the commands.</p>
+</li>
+<li>
+<p>Modify select command to conduct name search on google search pop up page.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>The AddCommand will be able to read 2 different user inputs, either "add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 t/friends t/owesMoney"
-or "add tutee n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 s/Science g/B+ edu/Secondary sch/HelloWord Secondary School".
-The input string will be parsed at AddCommandParser. Tutee and non-tutee contacts will then be added similarly as the AddTuteeCommand and the original AddCommand.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>Buyung</strong>:</p>
@@ -2973,7 +3029,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-05 02:53:23 UTC
+Last updated 2018-04-07 12:14:49 UTC
 </div>
 </div>
 </body>
