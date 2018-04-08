@@ -224,6 +224,27 @@ A tutee can have any number of tags (including 0)
 </tr>
 </table>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Education level can only be either primary, secondary or junior college<br></p>
+</li>
+<li>
+<p>All details except tag MUST be added</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -965,7 +986,7 @@ Format: <code>change TIME_UNIT</code></p>
 <p>Default view page time unit is d.</p>
 </li>
 <li>
-<p>Command fails if current view page time unit is same as the user input time unit.</p>
+<p>Command fails if current view page time unit is same as the user input time unit or user input an unrecognised time unit.</p>
 </li>
 </ul>
 </div>
@@ -981,16 +1002,60 @@ Format: <code>change TIME_UNIT</code></p>
 <li>
 <p><code>change d</code> (command fails as current calendar view is already in day)</p>
 </li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/change-d.png" alt="change d" width="800">
+</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><code>change w</code> (changes calendar view to week)</p>
 </li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/change-w.png" alt="change w" width="800">
+</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><code>change m</code> (changes calendar view to month)</p>
 </li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/change-m.png" alt="change m" width="800">
+</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><code>change y</code> (changes calendar view to year)</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/change-y.png" alt="change y" width="800">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Year view is unable to display all the months due to third party software constraint.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -1226,7 +1291,7 @@ e.g.<code>s 2</code><br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-07 12:14:49 UTC
+Last updated 2018-04-08 03:56:48 UTC
 </div>
 </div>
 </body>

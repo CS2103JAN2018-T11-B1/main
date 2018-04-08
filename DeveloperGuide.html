@@ -593,10 +593,16 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <h3 id="add-tutee-command"><a class="link" href="#add-tutee-command">3.1. Add tutee Command</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.1. Current Implementation</a></h4>
+<div class="sect4">
+<h5 id="reason-for-implementation"><a class="link" href="#reason-for-implementation">Reason for Implementation</a></h5>
 <div class="paragraph">
 <p>As the user of this application is the tutor, he or she will need to add the tutees' contact details.
-Furthermore, tutee contacts should not be mixed with the non-tutee contacts so that all the contacts are organized and can be managed easily. Therefore, AddTuteeCommand is used to add only the tutees' contact details.</p>
+Since a tutee contains more details specific to them compared to a non-tutee, tutee contacts should not be mixed with the non-tutee contacts so that all the contacts are organized and can be managed easily.
+Therefore, AddTuteeCommand is used to add only the tutees' contact details.</p>
 </div>
+</div>
+<div class="sect4">
+<h5 id="how-it-is-implemented"><a class="link" href="#how-it-is-implemented">How it is implemented</a></h5>
 <div class="paragraph">
 <p>The AddTuteeCommand is an extension of the Undoable Command, which is part of the Logic Component.
 As this command involves the altering of the application&#8217;s state, the ability to undo and redo will make this command more user-friendly and efficient.
@@ -658,10 +664,11 @@ However, Tutee class object has additional fields such as Subject, Grade, Educat
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If there is already someone, either tutee or non-tutee, in the contact list, DuplicatePersonException will be thrown.
+If the person already exists, either as tutee or non-tutee, in the contact list, DuplicatePersonException will be thrown.
 </td>
 </tr>
 </table>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -2832,15 +2839,6 @@ Use case ends.</p>
 <p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
 </li>
 <li>
-<p>Should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>1.8.0_60</code> or higher installed.</p>
-</li>
-<li>
-<p>Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.</p>
-</li>
-<li>
-<p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
-</li>
-<li>
 <p>Users should prefer typing over mouse input or other input methods.</p>
 </li>
 <li>
@@ -2867,6 +2865,10 @@ Use case ends.</p>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
+<dt class="hdlist1"><a id="address-book"></a> Address Book</dt>
+<dd>
+<p>An application for storing the contact details.</p>
+</dd>
 <dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
 <dd>
 <p>Windows, Linux, Unix, OS-X</p>
@@ -3029,7 +3031,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-07 12:14:49 UTC
+Last updated 2018-04-08 03:56:48 UTC
 </div>
 </div>
 </body>
