@@ -6,63 +6,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.6.1">
 <title>TuitionConnect (TC) - User Guide</title>
-<link rel="stylesheet" href="stylesheets/gh-pages.css">
+<link rel="stylesheet" href="./gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css">
+<link rel="stylesheet" href="./coderay-asciidoctor.css">
 </head>
 <body class="article">
 <div id="header">
-<h1>TuitionConnect (TC) - User Guide</h1>
 </div>
 <div id="content">
-<div id="preamble">
+<div class="sect1">
+<h2 id="tuitionconnect-tc-user-guide"><a class="link" href="#tuitionconnect-tc-user-guide">TuitionConnect (TC) - User Guide</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>Team MarvelousBook</code>      Since: <code>Feb 2018</code>      Licence: <code>MIT</code></p>
 </div>
-</div>
-<div id="toc" class="toc">
-<div id="toctitle"></div>
-<ul class="sectlevel1">
-<li><a href="#introduction">1. Introduction</a></li>
-<li><a href="#quick-start">2. Quick Start</a></li>
-<li><a href="#concepts-introduction">3. Concepts Introduction</a></li>
-<li><a href="#Features">4. Features</a>
-<ul class="sectlevel2">
-<li><a href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-person-code-add-code">4.2. Adding a person: <code>add</code></a></li>
-<li><a href="#adding-a-tutee-code-addtutee-code">4.3. Adding a tutee: <code>addtutee</code></a></li>
-<li><a href="#listing-all-persons-code-list-code">4.4. Listing all persons : <code>list</code></a></li>
-<li><a href="#listing-all-tasks-code-listtask-code">4.5. Listing all tasks : <code>listTask</code></a></li>
-<li><a href="#listing-all-tutees-code-listtutee-code">4.6. Listing all tutees : <code>listtutee</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">4.7. Editing a person : <code>edit</code></a></li>
-<li><a href="#locating-persons-by-category-code-findpersonby-code">4.8. Locating persons by category: <code>findpersonby</code></a></li>
-<li><a href="#sorting-persons-by-category-code-sortpersonby-code">4.9. Sorting persons by category: <code>sortpersonby</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">4.10. Deleting a person : <code>delete</code></a></li>
-<li><a href="#selecting-a-person-code-select-code">4.11. Selecting a person : <code>select</code></a></li>
-<li><a href="#adding-a-tuition-task-code-addtuition-code">4.12. Adding a tuition task: <code>addtuition</code></a></li>
-<li><a href="#adding-a-personal-task-code-addtask-code">4.13. Adding a personal task: <code>addtask</code></a></li>
-<li><a href="#deleting-a-task-code-deletetask-code">4.14. Deleting a task: <code>deletetask</code></a></li>
-<li><a href="#locating-tasks-by-category-code-findtaskby-code">4.15. Locating tasks by category: <code>findtaskby</code></a></li>
-<li><a href="#sorting-tasks-by-category-code-sorttaskby-code">4.16. Sorting tasks by category: <code>sorttaskby</code></a></li>
-<li><a href="#changing-calendar-view-page-time-unit-code-change-code">4.17. Changing calendar view page time unit: <code>change</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">4.18. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">4.19. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">4.20. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">4.21. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">4.22. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">4.23. Saving the data</a></li>
-<li><a href="#view-tuition-progress-code-coming-in-v2-0-code">4.24. View tuition progress <code>[coming in v2.0]</code></a></li>
-<li><a href="#update-tutee-fees-code-coming-in-v2-0-code">4.25. Update tutee fees <code>[coming in v2.0]</code></a></li>
-<li><a href="#complete-task-code-coming-in-v2-0-code">4.26. Complete task <code>[coming in v2.0]</code></a></li>
-<li><a href="#edit-task-code-coming-in-v2-0-code">4.27. Edit task <code>[coming in v2.0]</code></a></li>
-<li><a href="#view-contact-address-on-google-map-code-coming-in-v2-0-code">4.28. View contact address on Google map <code>[coming in v2.0]</code></a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">4.29. Encrypting data files <code>[coming in v2.0]</code></a></li>
-</ul>
-</li>
-<li><a href="#faq">5. FAQ</a></li>
-<li><a href="#command-summary">6. Command Summary</a></li>
-</ul>
 </div>
 </div>
 <div class="sect1">
@@ -348,7 +305,10 @@ Format: <code>l</code></p>
 Using Command Word:<br>
 Format: <code>listTask</code><br>
 Using Command Alias:<br>
-Format: <code>lt</code></p>
+Format: <code>lt</code><br>
+The purpose of the listTask command is to regenerate<br>
+the complete list of tasks for a user in the event that<br>
+only a specific set of tasks were displayed.</p>
 </div>
 </div>
 <div class="sect2">
@@ -607,7 +567,7 @@ Format: <code>s INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Selects the person and loads the Google search page the person at the specified <code>INDEX</code>.</p>
+<p>Selects the person and loads the Google search page the person at the specified <code>INDEX</code>. [Google search page pop up coming in V2.0]</p>
 </li>
 <li>
 <p>The index refers to the index number shown in the most recent listing.</p>
@@ -1396,7 +1356,7 @@ e.g.<code>s 2</code><br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-12 00:25:15 UTC
+Last updated 2018-04-12 01:58:13 UTC
 </div>
 </div>
 </body>

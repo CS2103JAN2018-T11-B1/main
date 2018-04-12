@@ -2147,70 +2147,48 @@ In addition, the calendar reflects any changes to the schedule such as adding of
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Anas</strong>:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><strong>CompleteCommand</strong> [Major Enhancement]</p>
-</li>
-</ol>
+<p><strong>Anas</strong>:
+. <strong>Integrating the Task class into the Addressbook</strong> [Major Enhancement]</p>
 </div>
 <div class="paragraph">
-<p>An important feature for the tutor is the ability to manage financial records that pertain to his/her work.
-To that end, the CompleteCommand functionality is implemented. This feature allows the user to update the amount
-of work completed and the financial compensation he/she is entitled based on the units of work completed.</p>
-</div>
-<div class="paragraph">
-<p>The CompleteCommand is an extension of the Undoable Command, which is part of the logic component.
-Much like many other commands in this application, the CompleteCommand was chosen to extend the undoable command, instead of the command, class in order
-to provide users with the flexibility to undo any unwanted commands. In summary, the CompleteCommand will extend the undoable command class which, itself,
-extends the command class.</p>
+<p>The Task class forms the foundation of TuitionConnect as it allows the user to manage their various
+"tasks". The task class comes in two forms, a personal task and a tuition task. The following is the
+interface:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">abstract</span> <span class="type">class</span> <span class="class">UndoableCommand</span> <span class="directive">extends</span> Command {
-    <span class="annotation">@Override</span>
-    <span class="directive">public</span> CommandResult execute() {
-        <span class="comment">// ... undo logic ...</span>
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">interface</span> <span class="class">Task</span> {
+    <span class="comment">// Consider changing the location of the three string values below</span>
 
-        executeUndoableCommand();
-    }
-}
+    <span class="predefined-type">String</span> MESSAGE_DESCRIPTION_CONSTRAINTS = <span class="string"><span class="delimiter">&quot;</span><span class="content">Tasks Should have a non-empty description</span><span class="delimiter">&quot;</span></span>;
 
-<span class="directive">public</span> <span class="type">class</span> <span class="class">CompleteCommand</span> <span class="directive">extends</span> UndoableCommand {
-    <span class="annotation">@Override</span>
-    <span class="directive">public</span> CommandResult executeUndoableCommand() {
-        <span class="comment">// ... add Complete logic ...</span>
-    }
+    <span class="predefined-type">String</span> MESSAGE_DURATION_CONSTRAINTS = <span class="string"><span class="delimiter">&quot;</span><span class="content">Duration must be a non-null value</span><span class="delimiter">&quot;</span></span>;
+
+    <span class="predefined-type">String</span> MESSAGE_DATETIME_CONSTRAINTS = <span class="string"><span class="delimiter">&quot;</span><span class="content">Date and time must be a non-null value</span><span class="delimiter">&quot;</span></span>;
+
+    LocalDateTime getTaskDateTime();
+
+    <span class="predefined-type">String</span> getStringTaskDateTime();
+
+    <span class="predefined-type">String</span> getDescription();
+
+    <span class="predefined-type">String</span> getDuration();
+
+    Entry getEntry();
 }</code></pre>
 </div>
-</div>
-<div class="paragraph">
-<p>Note: The above snippet will be updated when the complete code for this command is completed.</p>
-</div>
-<div class="paragraph">
-<p>The following diagram demonstrates the functioning of the CompleteCommand operation:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/LogicCompleteCommandClassDiagram.jpg" alt="LogicCompleteCommandClassDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Essentially, the complete command will work by receiving an object of type task as its parameter and "marking" this task as completed.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><strong>ViewTutee</strong> [Minor(?) Enhancement]</p>
+<p><strong>listTask Command</strong> [Minor Enhancement]</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>This feature allows the tutor to look at his/her current list of students. The idea behind this feature is for it to allow the tutor to
-see all the potential subscribers to his/her lessons and, by doing so, allowing them to associate these tutees with user-generated tasks.
-This feature is inspired by the "resources" concept in Microsoft Project whereby a "resource" is assigned to a work task.</p>
+<p>This feature allows the user to see all tasks stored in the addressbook. It is useful when a user has entered a command
+that displays only a single task. If the user then wants to see other tasks, he/she can input listTask
+and display the tasks again.</p>
 </div>
 </div>
 </div>
@@ -3038,7 +3016,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-12 00:25:15 UTC
+Last updated 2018-04-12 01:58:13 UTC
 </div>
 </div>
 </body>
