@@ -910,7 +910,20 @@ e.g. '1', '01', 'jan' and 'january' are all acceptable.</p>
 <ul>
 <li>
 <p>1. <strong>between</strong><br>
-Exactly <strong>2</strong> different keywords must be provided as the boundary values.<br></p>
+Exactly <strong>2 different</strong> keywords must be provided as the boundary values.<br></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+common terms that refer to a same time are considered as same keywords.<br>
+e.g. <code>findtaskby month between today this month</code> is an invalid command.
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p>2. <strong>namely</strong><br>
@@ -932,12 +945,16 @@ Any amount can be provided. If <strong>0</strong> keyword is given, the displaye
 <div class="ulist">
 <ul>
 <li>
-<p><code>findtaskby month between january Mar</code><br>
-Lists all tasks scheduled between January and March.</p>
+<p><code>findtaskby month between january current month</code><br>
+Lists all tasks scheduled from January until the current month.</p>
 </li>
 <li>
 <p><code>findtaskby month between November February</code><br>
 Lists all tasks scheduled on November, December, January and February.</p>
+</li>
+<li>
+<p><code>findtaskby month between now last month</code><br>
+Lists all tasks.</p>
 </li>
 <li>
 <p>`f month namely 2 06 oct
@@ -1356,7 +1373,7 @@ e.g.<code>s 2</code><br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-12 01:58:13 UTC
+Last updated 2018-04-12 14:20:02 UTC
 </div>
 </div>
 </body>
