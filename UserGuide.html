@@ -26,7 +26,7 @@
 <ul class="sectlevel1">
 <li><a href="#introduction">1. Introduction</a></li>
 <li><a href="#quick-start">2. Quick Start</a></li>
-<li><a href="#concept-introduction">3. Concept Introduction</a></li>
+<li><a href="#concepts-introduction">3. Concepts Introduction</a></li>
 <li><a href="#Features">4. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></li>
@@ -44,7 +44,7 @@
 <li><a href="#adding-a-personal-task-code-addtask-code">4.13. Adding a personal task: <code>addtask</code></a></li>
 <li><a href="#deleting-a-task-code-deletetask-code">4.14. Deleting a task: <code>deletetask</code></a></li>
 <li><a href="#locating-tasks-by-category-code-findtaskby-code">4.15. Locating tasks by category: <code>findtaskby</code></a></li>
-<li><a href="#sorting-persons-by-category-code-sorttaskby-code">4.16. Sorting persons by category: <code>sorttaskby</code></a></li>
+<li><a href="#sorting-tasks-by-category-code-sorttaskby-code">4.16. Sorting tasks by category: <code>sorttaskby</code></a></li>
 <li><a href="#changing-calendar-view-page-time-unit-code-change-code">4.17. Changing calendar view page time unit: <code>change</code></a></li>
 <li><a href="#listing-entered-commands-code-history-code">4.18. Listing entered commands : <code>history</code></a></li>
 <li><a href="#undoing-previous-command-code-undo-code">4.19. Undoing previous command : <code>undo</code></a></li>
@@ -52,13 +52,12 @@
 <li><a href="#clearing-all-entries-code-clear-code">4.21. Clearing all entries : <code>clear</code></a></li>
 <li><a href="#exiting-the-program-code-exit-code">4.22. Exiting the program : <code>exit</code></a></li>
 <li><a href="#saving-the-data">4.23. Saving the data</a></li>
-<li><a href="#view-tutee-fees-coming-in-v2-0">4.24. View tutee fees `[coming in v2.0]</a></li>
-<li><a href="#view-tuition-progress-coming-in-v2-0">4.25. View tuition progress [coming in v2.0]</a></li>
-<li><a href="#update-tutee-fees-code-coming-in-v2-0-code">4.26. Update tutee fees <code>[coming in v2.0]</code></a></li>
-<li><a href="#complete-task-code-coming-in-v2-0-code">4.27. Complete task <code>[coming in v2.0]</code></a></li>
-<li><a href="#edit-task-code-coming-in-v2-0-code">4.28. Edit task <code>[coming in v2.0]</code></a></li>
-<li><a href="#view-contact-address-on-google-map-code-coming-in-v2-0-code">4.29. View contact address on Google map <code>[coming in v2.0]</code></a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">4.30. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#view-tuition-progress-code-coming-in-v2-0-code">4.24. View tuition progress <code>[coming in v2.0]</code></a></li>
+<li><a href="#update-tutee-fees-code-coming-in-v2-0-code">4.25. Update tutee fees <code>[coming in v2.0]</code></a></li>
+<li><a href="#complete-task-code-coming-in-v2-0-code">4.26. Complete task <code>[coming in v2.0]</code></a></li>
+<li><a href="#edit-task-code-coming-in-v2-0-code">4.27. Edit task <code>[coming in v2.0]</code></a></li>
+<li><a href="#view-contact-address-on-google-map-code-coming-in-v2-0-code">4.28. View contact address on Google map <code>[coming in v2.0]</code></a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">4.29. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">5. FAQ</a></li>
@@ -115,7 +114,7 @@ This app will not work with earlier versions of Java 8.
 <p>Download the latest <code>TuitionConnect.jar</code> <a href="{https://github.com/CS2103JAN2018-T11-B1/main/releases}/releases">here</a>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
+<p>Copy the file to the folder you want to use as the home folder for Tuition Connect.</p>
 </li>
 <li>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
@@ -149,7 +148,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>list</code></strong> : lists all contacts</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
+<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the address book.</p>
 </li>
 <li>
 <p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
@@ -168,7 +167,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect1">
-<h2 id="concept-introduction"><a class="link" href="#concept-introduction">3. Concept Introduction</a></h2>
+<h2 id="concepts-introduction"><a class="link" href="#concepts-introduction">3. Concepts Introduction</a></h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -180,20 +179,26 @@ By doing so, it will be easier to organize your contacts using our special featu
 <p>Person : other contacts which are not tutee.<br></p>
 </li>
 <li>
-<p>Tutee Details : this includes tutee&#8217;s education level, grade, subject and school.<br></p>
+<p>Tutee Details : these are details that are only owned by tutees, which include tutee&#8217;s education level, grade, subject and school.<br></p>
 </li>
 <li>
-<p>Task : this refers to your agenda. There are 2 different kinds of task recognized by Tuition Connect.</p>
+<p>Task : this refers to activities you want to add into your 'to-do-list'. There are 2 different kinds of task recognized by Tuition Connect.</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Tuition task refers to sessions when you are teaching your registered tutee.<br></p>
 </li>
 <li>
-<p>Personal task is any agenda that is not a tuition.</p>
+<p>Personal task is any activity that is not a tuition.</p>
 </li>
 </ul>
 </div>
+</li>
+<li>
+<p>Address Book : this refers to the list of contacts located on the most left side of the app.</p>
+</li>
+<li>
+<p>Task List / Schedule : these terms are used interchangeably to refer to the list of tasks located in the middle of the app.</p>
 </li>
 </ul>
 </div>
@@ -339,7 +344,7 @@ Format: <code>l</code></p>
 <div class="sect2">
 <h3 id="listing-all-tasks-code-listtask-code"><a class="link" href="#listing-all-tasks-code-listtask-code">4.5. Listing all tasks : <code>listTask</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all tasks in the address book.<br>
+<p>Shows a list of all tasks in the task list.<br>
 Using Command Word:<br>
 Format: <code>listTask</code><br>
 Using Command Alias:<br>
@@ -383,7 +388,7 @@ Format: <code>e INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8
 <p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
 </li>
 <li>
-<p>This command is able to edit the general details of a tutee but is unable to edit tutee&#8217;s specific details, namely : Education Level, Grade, School and Subject.</p>
+<p>This command is able to edit the general details of a tutee (namely :name, phone, email, address and tags. However, it is unable to edit tutee&#8217;s details.</p>
 </li>
 </ul>
 </div>
@@ -447,7 +452,7 @@ Format: <code>f CATEGORY KEYWORD [MORE_KEYWORDS]</code><br></p>
 </div>
 </li>
 <li>
-<p>Categories marked with * are only owned by tutees.</p>
+<p>Categories marked with * are only owned by tutees (tutee details).</p>
 </li>
 <li>
 <p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
@@ -635,7 +640,7 @@ Selects the 1st person in the results of the <code>f</code> command.</p>
 <div class="sect2">
 <h3 id="adding-a-tuition-task-code-addtuition-code"><a class="link" href="#adding-a-tuition-task-code-addtuition-code">4.12. Adding a tuition task: <code>addtuition</code></a></h3>
 <div class="paragraph">
-<p>Adds a task to the Tuition Connect schedule<br>
+<p>Adds a task to Tuition Connect&#8217;s schedule<br>
 Using Command Word:<br>
 Format: `addtuition TUTEE_INDEX DATE TIME DURATION [DESCRIPTION]<br></p>
 </div>
@@ -829,8 +834,8 @@ Format: <code>deletetask TASK_INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>The task is chosen by specifying a <code>TASK_INDEX</code>. The index refers to the index number shown in
-the left side of task listing. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>The task is chosen by specifying a <code>TASK_INDEX</code>. The index refers to the index number shown on
+the left side of the schedule list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 </ul>
 </div>
@@ -874,10 +879,10 @@ Format: <code>findtaskby CATEGORY FIND_TYPE KEYWORD [MORE_KEYWORDS]</code><br></
 <p>1. month</p>
 </li>
 <li>
-<p>2. year (coming in v2.0)</p>
+<p>2. year <code>(coming in v2.0)</code></p>
 </li>
 <li>
-<p>3. duration (coming in v2.0)</p>
+<p>3. duration <code>(coming in v2.0)</code></p>
 </li>
 </ul>
 </div>
@@ -917,8 +922,18 @@ Format: <code>findtaskby CATEGORY FIND_TYPE KEYWORD [MORE_KEYWORDS]</code><br></
 <div class="ulist">
 <ul>
 <li>
-<p>1. <strong>month</strong> keywords are months in either M, MM, MMM or MMMM format.<br>
+<p>1. <strong>month</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>months in either M, MM, MMM or MMMM format.<br>
 e.g. '1', '01', 'jan' and 'january' are all acceptable.</p>
+</li>
+<li>
+<p>several common terms such as 'now', 'today', 'this month', 'current month', 'last month' and 'next month'.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>2. <strong>year</strong> to be implemented in v2.0</p>
@@ -939,7 +954,7 @@ Exactly <strong>2</strong> different keywords must be provided as the boundary v
 </li>
 <li>
 <p>2. <strong>namely</strong><br>
-Any amount can be provided. If <strong>0</strong> keyword is given, the displayed task list will be empty.</p>
+Any amount can be provided. If <strong>0</strong> keyword is given, the displayed schedule will be empty.</p>
 </li>
 </ul>
 </div>
@@ -972,7 +987,7 @@ Lists all tasks scheduled on February, June and October.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-persons-by-category-code-sorttaskby-code"><a class="link" href="#sorting-persons-by-category-code-sorttaskby-code">4.16. Sorting persons by category: <code>sorttaskby</code></a></h3>
+<h3 id="sorting-tasks-by-category-code-sorttaskby-code"><a class="link" href="#sorting-tasks-by-category-code-sorttaskby-code">4.16. Sorting tasks by category: <code>sorttaskby</code></a></h3>
 <div class="paragraph">
 <p>Sorts your displayed task list according to a specified category in ascending order.<br>
 Using Command Word:<br>
@@ -999,7 +1014,10 @@ Format: <code>sorttaskby CATEGORY</code><br></p>
 </div>
 </li>
 <li>
-<p>Sorting category types is case insensitive.
+<p>Sorting category types is case insensitive.</p>
+</li>
+<li>
+<p>Sorting is in increasing order. This means later is placed below the earlier.
 e.g both <code>sort month</code> and <code>sort Month</code> works fine.</p>
 </li>
 </ul>
@@ -1013,7 +1031,7 @@ e.g both <code>sort month</code> and <code>sort Month</code> works fine.</p>
 <ul>
 <li>
 <p><code>sorttaskby Month</code><br>
-sorts tasks by month in ascending order.</p>
+sorts tasks by month in increasing order.</p>
 </li>
 </ul>
 </div>
@@ -1161,7 +1179,7 @@ Format: <code>h</code></p>
 <div class="sect2">
 <h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">4.19. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
-<p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
+<p>Restores the address book and the task list to the state before the previous <em>undoable</em> command was executed.<br>
 Using Command Word:<br>
 Format: <code>undo</code>
 Using Command Alias:<br>
@@ -1175,7 +1193,7 @@ Format: <code>u</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Undoable commands: those commands that modify the address book&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
+<p>Undoable commands: those commands that modify the address book&#8217;s and task list&#8217;s content (<code>add</code>, <code>addtutee</code>, <code>addtask</code>, <code>addtuition</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
 </div>
 </td>
 </tr>
@@ -1244,7 +1262,7 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 <div class="sect2">
 <h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">4.21. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
-<p>Clears all entries from the address book.<br>
+<p>Clears all entries in Tuition Connect.<br>
 Using Command Word:<br>
 Format: <code>clear</code><br>
 Using Command Alias:<br>
@@ -1261,49 +1279,45 @@ Format: <code>exit</code></p>
 <div class="sect2">
 <h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.23. Saving the data</a></h3>
 <div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that
+<p>Tuition Connect data are saved in the hard disk automatically after any command that
  changes the data.<br>
-There is no need to save manually.</p>
+There is no need to save manually.
+=== View tutee fees <code>[coming in v2.0]</code>
+View the amount that has to be paid by a tutee.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-tutee-fees-coming-in-v2-0"><a class="link" href="#view-tutee-fees-coming-in-v2-0">4.24. View tutee fees `[coming in v2.0]</a></h3>
+<h3 id="view-tuition-progress-code-coming-in-v2-0-code"><a class="link" href="#view-tuition-progress-code-coming-in-v2-0-code">4.24. View tuition progress <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p>View the current amount that has to be paid by a tutee.</p>
+<p>Shows the details of tuition provided within several months in the form of a graph.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-tuition-progress-coming-in-v2-0"><a class="link" href="#view-tuition-progress-coming-in-v2-0">4.25. View tuition progress [coming in v2.0]</a></h3>
-<div class="paragraph">
-<p>Shows the amount of tuition provided within several months in the form of a graph.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="update-tutee-fees-code-coming-in-v2-0-code"><a class="link" href="#update-tutee-fees-code-coming-in-v2-0-code">4.26. Update tutee fees <code>[coming in v2.0]</code></a></h3>
+<h3 id="update-tutee-fees-code-coming-in-v2-0-code"><a class="link" href="#update-tutee-fees-code-coming-in-v2-0-code">4.25. Update tutee fees <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Updates the remaining balance of the tuition fees of a specific tutee after he or she has paid.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="complete-task-code-coming-in-v2-0-code"><a class="link" href="#complete-task-code-coming-in-v2-0-code">4.27. Complete task <code>[coming in v2.0]</code></a></h3>
+<h3 id="complete-task-code-coming-in-v2-0-code"><a class="link" href="#complete-task-code-coming-in-v2-0-code">4.26. Complete task <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Marks a task as completed. If the task is tuition, fees will automatically be added to the tutee&#8217;s fee balance.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="edit-task-code-coming-in-v2-0-code"><a class="link" href="#edit-task-code-coming-in-v2-0-code">4.28. Edit task <code>[coming in v2.0]</code></a></h3>
+<h3 id="edit-task-code-coming-in-v2-0-code"><a class="link" href="#edit-task-code-coming-in-v2-0-code">4.27. Edit task <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Edits date, time, duration or description of an existing task and reflects the changes on the calendar.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-contact-address-on-google-map-code-coming-in-v2-0-code"><a class="link" href="#view-contact-address-on-google-map-code-coming-in-v2-0-code">4.29. View contact address on Google map <code>[coming in v2.0]</code></a></h3>
+<h3 id="view-contact-address-on-google-map-code-coming-in-v2-0-code"><a class="link" href="#view-contact-address-on-google-map-code-coming-in-v2-0-code">4.28. View contact address on Google map <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>View the location of a specific contact&#8217;s address on google map and the shortest route from the current location will be displayed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">4.30. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">4.29. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -1315,7 +1329,7 @@ There is no need to save manually.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Tuition Connect folder.</p>
 </div>
 </div>
 </div>
@@ -1382,7 +1396,7 @@ e.g.<code>s 2</code><br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-11 11:34:30 UTC
+Last updated 2018-04-12 00:07:10 UTC
 </div>
 </div>
 </body>
