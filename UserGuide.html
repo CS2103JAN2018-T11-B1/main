@@ -6,20 +6,63 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.6.1">
 <title>TuitionConnect (TC) - User Guide</title>
-<link rel="stylesheet" href="./gh-pages.css">
+<link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-<link rel="stylesheet" href="./coderay-asciidoctor.css">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css">
 </head>
 <body class="article">
 <div id="header">
+<h1>TuitionConnect (TC) - User Guide</h1>
 </div>
 <div id="content">
-<div class="sect1">
-<h2 id="tuitionconnect-tc-user-guide"><a class="link" href="#tuitionconnect-tc-user-guide">TuitionConnect (TC) - User Guide</a></h2>
+<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>Team MarvelousBook</code>      Since: <code>Feb 2018</code>      Licence: <code>MIT</code></p>
 </div>
+</div>
+<div id="toc" class="toc">
+<div id="toctitle"></div>
+<ul class="sectlevel1">
+<li><a href="#introduction">1. Introduction</a></li>
+<li><a href="#quick-start">2. Quick Start</a></li>
+<li><a href="#concepts-introduction">3. Concepts Introduction</a></li>
+<li><a href="#Features">4. Features</a>
+<ul class="sectlevel2">
+<li><a href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></li>
+<li><a href="#adding-a-person-code-add-code">4.2. Adding a person: <code>add</code></a></li>
+<li><a href="#adding-a-tutee-code-addtutee-code">4.3. Adding a tutee: <code>addtutee</code></a></li>
+<li><a href="#listing-all-persons-code-list-code">4.4. Listing all persons : <code>list</code></a></li>
+<li><a href="#listing-all-tasks-code-listtask-code">4.5. Listing all tasks : <code>listTask</code></a></li>
+<li><a href="#listing-all-tutees-code-listtutee-code">4.6. Listing all tutees : <code>listtutee</code></a></li>
+<li><a href="#editing-a-person-code-edit-code">4.7. Editing a person : <code>edit</code></a></li>
+<li><a href="#locating-persons-by-category-code-findpersonby-code">4.8. Locating persons by category: <code>findpersonby</code></a></li>
+<li><a href="#sorting-persons-by-category-code-sortpersonby-code">4.9. Sorting persons by category: <code>sortpersonby</code></a></li>
+<li><a href="#deleting-a-person-code-delete-code">4.10. Deleting a person : <code>delete</code></a></li>
+<li><a href="#selecting-a-person-code-select-code">4.11. Selecting a person : <code>select</code></a></li>
+<li><a href="#adding-a-tuition-task-code-addtuition-code">4.12. Adding a tuition task: <code>addtuition</code></a></li>
+<li><a href="#adding-a-personal-task-code-addtask-code">4.13. Adding a personal task: <code>addtask</code></a></li>
+<li><a href="#deleting-a-task-code-deletetask-code">4.14. Deleting a task: <code>deletetask</code></a></li>
+<li><a href="#locating-tasks-by-category-code-findtaskby-code">4.15. Locating tasks by category: <code>findtaskby</code></a></li>
+<li><a href="#sorting-tasks-by-category-code-sorttaskby-code">4.16. Sorting tasks by category: <code>sorttaskby</code></a></li>
+<li><a href="#changing-calendar-view-page-time-unit-code-change-code">4.17. Changing calendar view page time unit: <code>change</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">4.18. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">4.19. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">4.20. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">4.21. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">4.22. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">4.23. Saving the data</a></li>
+<li><a href="#view-tuition-progress-code-coming-in-v2-0-code">4.24. View tuition progress <code>[coming in v2.0]</code></a></li>
+<li><a href="#update-tutee-fees-code-coming-in-v2-0-code">4.25. Update tutee fees <code>[coming in v2.0]</code></a></li>
+<li><a href="#complete-task-code-coming-in-v2-0-code">4.26. Complete task <code>[coming in v2.0]</code></a></li>
+<li><a href="#edit-task-code-coming-in-v2-0-code">4.27. Edit task <code>[coming in v2.0]</code></a></li>
+<li><a href="#view-contact-address-on-google-map-code-coming-in-v2-0-code">4.28. View contact address on Google map <code>[coming in v2.0]</code></a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">4.29. Encrypting data files <code>[coming in v2.0]</code></a></li>
+</ul>
+</li>
+<li><a href="#faq">5. FAQ</a></li>
+<li><a href="#command-summary">6. Command Summary</a></li>
+</ul>
 </div>
 </div>
 <div class="sect1">
@@ -29,11 +72,9 @@
 <p>TuitionConnect (TC) is an integration of a personalised address book, task manager and income tracker for private home tutors.<br></p>
 </div>
 <div class="paragraph">
-<p>Stems from our strong passion in simplifying the life of tutors, Tuition Connect introduces features
+<p>Stems from our strong passion in simplifying the life of tutors, TuitionConnect introduces features
 to aid management of tutee contacts, tuition schedule and income tracking. Moreover, we believe that a thorough connectivity is the
-root of simplicity. Hence, there are also features which supports the management of your personal contacts and tasks.<br>
-Certainly, it is important to recognize that reflection is the key on improvment. Tuition Connect also helps tutors to review
-their past tuition sessions as long as those sessions are not removed from the data.</p>
+root of simplicity. Hence, there are also features which support the management of your personal contacts and tasks.<br></p>
 </div>
 <div class="paragraph">
 <p>TuitionConnect is primarily for tutors who <strong>prefer to use a desktop app for managing contacts and tasks</strong>.
@@ -71,7 +112,7 @@ This app will not work with earlier versions of Java 8.
 <p>Download the latest <code>TuitionConnect.jar</code> <a href="{https://github.com/CS2103JAN2018-T11-B1/main/releases}/releases">here</a>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for Tuition Connect.</p>
+<p>Copy the file to the folder you want to use as the home folder for TuitionConnect.</p>
 </li>
 <li>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
@@ -129,30 +170,31 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Tutee  : this refers to the students you are teaching. Adding a student as tutee requires specific <strong>tutee details</strong> to be provided.
+<p>Tutee  : This refers to the students you are teaching. Adding a student as tutee requires specific <strong>tutee details</strong> to be provided.
 By doing so, it will be easier to organize your contacts using our special features.<br></p>
 </li>
 <li>
-<p>Person : other contacts which are not tutee.<br></p>
+<p>Person : Other contacts which are not tutee.<br></p>
 </li>
 <li>
-<p>Tutee Details : these are details that are only owned by tutees, which include tutee&#8217;s education level, grade, subject and school.<br></p>
+<p>Tutee Details : These are details that are only owned by tutees, which include tutee&#8217;s education level, grade, subject and school.<br></p>
 </li>
 <li>
-<p>Task : this refers to activities you want to add into your 'to-do-list'. There are 2 different kinds of task recognized by Tuition Connect.</p>
-<div class="ulist">
-<ul>
+<p>Task : This refers to the activities you want to add into your 'to-do-list'.<br>
+Type of Task:<br></p>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>Tuition task refers to sessions when you are teaching your registered tutee.<br></p>
+<p>Tuition task: Teaching a specified tutee in contact list.<br></p>
 </li>
 <li>
-<p>Personal task is any activity that is not a tuition.</p>
+<p>Personal task: Non-tuition activity.</p>
 </li>
-</ul>
+</ol>
 </div>
 </li>
 <li>
-<p>Address Book : this refers to the list of contacts located on the most left side of the app.</p>
+<p>Address Book : This refers to the list of contacts located on the most left side of the app.</p>
 </li>
 <li>
 <p>Task List / Schedule : these terms are used interchangeably to refer to the list of tasks located in the middle of the app.</p>
@@ -260,10 +302,14 @@ A tutee can have any number of tags (including 0)
 <div class="ulist">
 <ul>
 <li>
-<p>Education level can only be either primary, secondary or junior college<br></p>
+<p>Education level can only be either primary, secondary or junior college (NOT case sensitive)<br></p>
 </li>
 <li>
 <p>All details except tag MUST be added</p>
+</li>
+<li>
+<p>Special character in grade can be anything since different institution may use different grading system.<br>
+i.e. B+, B3, B$, B# etc are all valid</p>
 </li>
 </ul>
 </div>
@@ -283,7 +329,7 @@ A tutee can have any number of tags (including 0)
 <p><code>addtutee n/Betsy Crowe s/Mathematics g/C e/betsycrowe@example.com a/Newgate Town p/1234567 t/owesMoney sch/Victoria Institution edu/secondary</code></p>
 </li>
 <li>
-<p><code>addtutee n/Dickson ee p/91234567 e/dickson@exmaple.com a/Dickson street, block 456, #02-02 s/english g/f edu/primary sch/Newgate Primary School</code></p>
+<p><code>addtutee n/Dickson ee p/91234567 e/dickson@exmaple.com a/Dickson street, block 456, #02-02 s/english g/f9 edu/primary sch/Newgate Primary School</code></p>
 </li>
 </ul>
 </div>
@@ -316,7 +362,7 @@ only a specific set of tasks were displayed.</p>
 <div class="paragraph">
 <p>Shows a list of all tutees in the address book.<br>
 Using Command Word:<br>
-Format: <code>list</code><br></p>
+Format: <code>listtutee</code><br></p>
 </div>
 </div>
 <div class="sect2">
@@ -328,8 +374,13 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;
 Using Comamnd Alias:<br>
 Format: <code>e INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -348,11 +399,13 @@ Format: <code>e INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8
 <p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
 </li>
 <li>
-<p>This command is able to edit the general details of a tutee (namely :name, phone, email, address and tags. However, it is unable to edit tutee&#8217;s details.</p>
+<p>This command is able to edit the general details of a tutee (name, phone, email, address and tags). However, it is unable to edit tutee&#8217;s details (subject, grade, education level, school and tutee tag).</p>
 </li>
 </ul>
 </div>
-</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -600,7 +653,7 @@ Selects the 1st person in the results of the <code>f</code> command.</p>
 <div class="sect2">
 <h3 id="adding-a-tuition-task-code-addtuition-code"><a class="link" href="#adding-a-tuition-task-code-addtuition-code">4.12. Adding a tuition task: <code>addtuition</code></a></h3>
 <div class="paragraph">
-<p>Adds a task to Tuition Connect&#8217;s schedule<br>
+<p>Adds a task to TuitionConnect&#8217;s schedule<br>
 Using Command Word:<br>
 Format: `addtuition TUTEE_INDEX DATE TIME DURATION [DESCRIPTION]<br></p>
 </div>
@@ -759,7 +812,7 @@ for more information about Tutee.</p>
 <div class="sect2">
 <h3 id="adding-a-personal-task-code-addtask-code"><a class="link" href="#adding-a-personal-task-code-addtask-code">4.13. Adding a personal task: <code>addtask</code></a></h3>
 <div class="paragraph">
-<p>Adds a personal task to the Tuition Connect schedule<br>
+<p>Adds a personal task to the TuitionConnect schedule<br>
 Using Command Word:<br>
 Format: `addtask DATE TIME DURATION [DESCRIPTION]+</p>
 </div>
@@ -787,7 +840,7 @@ Format: `addtask DATE TIME DURATION [DESCRIPTION]+</p>
 <div class="sect2">
 <h3 id="deleting-a-task-code-deletetask-code"><a class="link" href="#deleting-a-task-code-deletetask-code">4.14. Deleting a task: <code>deletetask</code></a></h3>
 <div class="paragraph">
-<p>Deletes a task from the Tuition Connect schedule<br>
+<p>Deletes a task from the TuitionConnect schedule<br>
 Using Command Word:<br>
 Format: <code>deletetask TASK_INDEX</code></p>
 </div>
@@ -1239,7 +1292,7 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 <div class="sect2">
 <h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">4.21. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
-<p>Clears all entries in Tuition Connect.<br>
+<p>Clears all entries in TuitionConnect.<br>
 Using Command Word:<br>
 Format: <code>clear</code><br>
 Using Command Alias:<br>
@@ -1256,7 +1309,7 @@ Format: <code>exit</code></p>
 <div class="sect2">
 <h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.23. Saving the data</a></h3>
 <div class="paragraph">
-<p>Tuition Connect data are saved in the hard disk automatically after any command that
+<p>TuitionConnect data are saved in the hard disk automatically after any command that
  changes the data.<br>
 There is no need to save manually.
 === View tutee fees <code>[coming in v2.0]</code>
@@ -1306,7 +1359,7 @@ View the amount that has to be paid by a tutee.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Tuition Connect folder.</p>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous TuitionConnect folder.</p>
 </div>
 </div>
 </div>
@@ -1373,7 +1426,7 @@ e.g.<code>s 2</code><br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-12 14:20:02 UTC
+Last updated 2018-04-13 04:50:20 UTC
 </div>
 </div>
 </body>
