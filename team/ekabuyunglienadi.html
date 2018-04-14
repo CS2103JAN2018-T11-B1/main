@@ -16,7 +16,7 @@
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="project-enhance-address-book-level-4-tuition-connect"><a class="link" href="#project-enhance-address-book-level-4-tuition-connect">PROJECT: Enhance Address Book Level 4 : Tuition Connect</a></h2>
+<h2 id="project-development-of-address-book-level-4-tuition-connect"><a class="link" href="#project-development-of-address-book-level-4-tuition-connect">PROJECT: Development of Address Book Level 4 : Tuition Connect</a></h2>
 <div class="sectionbody">
 <hr>
 </div>
@@ -25,7 +25,7 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>TuitionConnect is an integration of desktop address book and task manager optimized to be used by private tuition teacher. TuitionConnect aims to help tutors in managing their busy schedule efficiently and effectively.</p>
+<p>TuitionConnect is an integration of address book and task manager optimized to be used by private tuition teacher for managing their busy schedule efficiently and effectively.</p>
 </div>
 </div>
 </div>
@@ -40,7 +40,7 @@
 <ul>
 <li>
 <p>What it does: allows the users to organize their activities neatly by creating and deleting tasks.
-Also allows users to browse through their schedule with ease using the find and sort utilities.</p>
+Also, allows users to browse through their schedule with ease using the find and sort utilities.</p>
 </li>
 </ul>
 </div>
@@ -118,6 +118,11 @@ Also allows users to browse through their schedule with ease using the find and 
 </tr>
 </tbody>
 </table>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui_with_overview.jpg" alt="Ui with overview" width="400">
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -158,38 +163,50 @@ Type of Task:<br></p>
 </ul>
 </div>
 <div class="sect2">
-<h3 id="locating-tasks-by-category-code-findtaskby-code"><a class="link" href="#locating-tasks-by-category-code-findtaskby-code">Locating tasks by category: <code>findtaskby</code></a></h3>
+<h3 id="adding-a-tuition-task-code-addtuition-code"><a class="link" href="#adding-a-tuition-task-code-addtuition-code">Adding a tuition task: <code>addtuition</code></a></h3>
 <div class="paragraph">
-<p>Finds tasks which specified category has value within 2 given boundaries (inclusive) or contain any of the given keywords.<br>
-The functionality is determined according to the specified FIND_TYPE.<br></p>
-</div>
-<div class="paragraph">
-<p>Using Command Word:<br>
-Format: <code>findtaskby CATEGORY FIND_TYPE KEYWORD [MORE_KEYWORDS]</code><br></p>
+<p>Adds a task to TuitionConnect&#8217;s schedule<br>
+Using Command Word:<br>
+Format: `addtuition TUTEE_INDEX DATE TIME DURATION [DESCRIPTION]<br></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
+<div class="paragraph">
 <p><strong>PARAMETERS</strong></p>
-</li>
-<li>
-<p>CATEGORY</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>There are 3 categories available:</p>
+<p>TUTEE_INDEX</p>
 <div class="ulist">
 <ul>
 <li>
-<p>1. month</p>
+<p>The associated tutee is chosen by specifying a <code>TUTEE_INDEX</code>. The index refers to the index number shown in
+the left side of person listing. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
-<p>2. year <code>(coming in v2.0)</code></p>
+<p>The chosen index must be the index of a Tutee (persons who have 'Tutee' tag). Refer to the <strong>addtutee</strong> command guide
+for more information about Tutee.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>3. duration <code>(coming in v2.0)</code></p>
+<p>DATE</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Date refers to the date of the tuition.</p>
+</li>
+<li>
+<p>Date must be written in the format of dd/mm/yyyy</p>
+<div class="ulist">
+<ul>
+<li>
+<p>valid example   : 08/03/2018</p>
+</li>
+<li>
+<p>invalid example : 8/3/2018</p>
 </li>
 </ul>
 </div>
@@ -198,21 +215,21 @@ Format: <code>findtaskby CATEGORY FIND_TYPE KEYWORD [MORE_KEYWORDS]</code><br></
 </div>
 </li>
 <li>
-<p>FIND_TYPE</p>
+<p>TIME</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Choice of Find Type determines the behaviour of this command and the subsequent parameters.</p>
+<p>Time refers to the starting time of the tuition.</p>
 </li>
 <li>
-<p>There are 2 choices of Find Type:</p>
+<p>Time must be written in the format of hh:mm (24-hr format).</p>
 <div class="ulist">
 <ul>
 <li>
-<p>1. 'between' : returns tasks within the 2 given boundaries (inclusive).</p>
+<p>valid example   : 12:00</p>
 </li>
 <li>
-<p>2. 'namely' : returns tasks that match the keywords.</p>
+<p>inavlid example : 25:00</p>
 </li>
 </ul>
 </div>
@@ -221,63 +238,67 @@ Format: <code>findtaskby CATEGORY FIND_TYPE KEYWORD [MORE_KEYWORDS]</code><br></
 </div>
 </li>
 <li>
-<p>KEYWORDS</p>
+<p>DURATION</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Keywords given depend on the specified category:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>1. <strong>month</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p>months in either M, MM, MMM or MMMM format.<br>
-e.g. '1', '01', 'jan' and 'january' are all acceptable.</p>
+<p>Duration refers to the duration of the tuition.</p>
 </li>
 <li>
-<p>several common terms such as 'now', 'today', 'this month', 'current month', 'last month' and 'next month'.</p>
+<p>Duration must be written in the format of XXhXXm</p>
+<div class="ulist">
+<ul>
+<li>
+<p>valid example : 1h30m</p>
+<div class="ulist">
+<ul>
+<li>
+<p>this means that the tuition lasts for 1 <strong>hour</strong> and 30 <strong>minute</strong>.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>2. <strong>year</strong> to be implemented in v2.0</p>
+<p>valid example : 01h30m</p>
 </li>
 <li>
-<p>3. <strong>duration</strong> to be implemented in v2.0</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>The amount of keywords depend on the specified Find Type:</p>
+<p>invalid example : 1h60m</p>
 <div class="ulist">
 <ul>
 <li>
-<p>1. <strong>between</strong><br>
-Exactly <strong>2 different</strong> keywords must be provided as the boundary values.<br></p>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-common terms that refer to a same time are considered as same keywords.<br>
-e.g. <code>findtaskby month between today this month</code> is an invalid command.
-</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p>2. <strong>namely</strong><br>
-Any amount can be provided. If <strong>0</strong> keyword is given, the displayed schedule will be empty.</p>
+<p>the duration in minute must be a number between 0 and 59.</p>
 </li>
 </ul>
 </div>
+</li>
+<li>
+<p>invalid example : 30m</p>
+<div class="ulist">
+<ul>
+<li>
+<p>a correct duration for 30m tuition is <strong>0h30m</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>DESCRIPTION</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Description can be of any format.</p>
+</li>
+<li>
+<p>Leading and trailing whitespaces will be removed.</p>
+</li>
+<li>
+<p>Description is optional. It can be empty.</p>
 </li>
 </ul>
 </div>
@@ -292,20 +313,10 @@ Any amount can be provided. If <strong>0</strong> keyword is given, the displaye
 <div class="ulist">
 <ul>
 <li>
-<p><code>findtaskby month between january current month</code><br>
-Lists all tasks scheduled from January until the current month.</p>
+<p><code>addtuition 1 10/05/2018 12:00 1h30m Calculus homework page 24</code></p>
 </li>
 <li>
-<p><code>findtaskby month between November February</code><br>
-Lists all tasks scheduled on November, December, January and February.</p>
-</li>
-<li>
-<p><code>findtaskby month between now last month</code><br>
-Lists all tasks.</p>
-</li>
-<li>
-<p>`f month namely 2 06 oct
-Lists all tasks scheduled on February, June and October.</p>
+<p><code>addtuition 1 31/12/2018 16:00 0h30m</code></p>
 </li>
 </ul>
 </div>
@@ -360,32 +371,6 @@ sorts tasks by month in increasing order.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="deleting-a-task-code-deletetask-code"><a class="link" href="#deleting-a-task-code-deletetask-code">Deleting a task: <code>deletetask</code></a></h3>
-<div class="paragraph">
-<p>Deletes a task from the TuitionConnect schedule<br>
-Using Command Word:<br>
-Format: <code>deletetask TASK_INDEX</code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The task is chosen by specifying a <code>TASK_INDEX</code>. The index refers to the index number shown on
-the left side of the schedule list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>deletetask 1</code></p>
-</li>
-</ul>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -423,13 +408,69 @@ to ease users&#8217;s experience in organizing their address book.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>As shown in the sequence diagram, the Logic command&#8217;s call for execution leads to Sort Person command to request for a Comparator object from PersonSortUtil class.
+<p>As shown in the sequence diagram, the Logic command&#8217;s call for execution results in Sort Person command to request for a Comparator object from PersonSortUtil class.
 A comparator object is required since the sorting implementation utilizes JavaFX8&#8217;s SortedList class.
-(Refer to <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/collections/transformation/SortedList.html*" class="bare">https://docs.oracle.com/javase/8/javafx/api/javafx/collections/transformation/SortedList.html*</a> for more information)
+(Refer to <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/collections/transformation/SortedList.html" class="bare">https://docs.oracle.com/javase/8/javafx/api/javafx/collections/transformation/SortedList.html</a> for more information)
 Here, PersonSortUtil class is responsible in providing a suitable comparator that matches the sorting behaviour requested by the user. Upon receiving the comparator, SortPersonCommand
-calls the sortFilteredPersonList() method in method which utilises a SortedList object to perform the sorting.</p>
+calls the sortFilteredPersonList() method which utilises a SortedList object to perform the sorting.</p>
 </div>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Model"><a class="link" href="#Design-Model">Model component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ModelClassDiagram2.png" alt="ModelClassDiagram2" width="800">
+</div>
+<div class="title">Figure 1. Structure of the Model Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="{https://github.com/CS2103JAN2018-T11-B1/main}/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>Model</code>,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
+</li>
+<li>
+<p>stores the Address Book data.</p>
+</li>
+<li>
+<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> and <code>ObservableList&lt;Task&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+</li>
+<li>
+<p>does not depend on any of the other three components.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Storage"><a class="link" href="#Design-Storage">Storage component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StorageClassDiagram2.png" alt="StorageClassDiagram2" width="800">
+</div>
+<div class="title">Figure 2. Structure of the Storage Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="{https://github.com/CS2103JAN2018-T11-B1/main}/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>Storage</code> component,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>can save <code>UserPref</code> objects in json format and read it back.</p>
+</li>
+<li>
+<p>can save the Address Book data in xml format and read it back.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -437,7 +478,7 @@ calls the sortFilteredPersonList() method in method which utilises a SortedList 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 09:58:54 UTC
+Last updated 2018-04-14 23:36:43 UTC
 </div>
 </div>
 </body>

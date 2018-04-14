@@ -33,15 +33,15 @@
 <li><a href="#adding-a-person-code-add-code">4.2. Adding a person: <code>add</code></a></li>
 <li><a href="#adding-a-tutee-code-addtutee-code">4.3. Adding a tutee: <code>addtutee</code></a></li>
 <li><a href="#listing-all-persons-code-list-code">4.4. Listing all persons : <code>list</code></a></li>
-<li><a href="#listing-all-tasks-code-listtask-code">4.5. Listing all tasks : <code>listTask</code></a></li>
-<li><a href="#listing-all-tutees-code-listtutee-code">4.6. Listing all tutees : <code>listtutee</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">4.7. Editing a person : <code>edit</code></a></li>
-<li><a href="#locating-persons-by-category-code-findpersonby-code">4.8. Locating persons by category: <code>findpersonby</code></a></li>
-<li><a href="#sorting-persons-by-category-code-sortpersonby-code">4.9. Sorting persons by category: <code>sortpersonby</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">4.10. Deleting a person : <code>delete</code></a></li>
-<li><a href="#selecting-a-person-code-select-code">4.11. Selecting a person : <code>select</code></a></li>
-<li><a href="#adding-a-tuition-task-code-addtuition-code">4.12. Adding a tuition task: <code>addtuition</code></a></li>
-<li><a href="#adding-a-personal-task-code-addtask-code">4.13. Adding a personal task: <code>addtask</code></a></li>
+<li><a href="#listing-all-tutees-code-listtutee-code">4.5. Listing all tutees : <code>listtutee</code></a></li>
+<li><a href="#editing-a-person-code-edit-code">4.6. Editing a person : <code>edit</code></a></li>
+<li><a href="#locating-persons-by-category-code-findpersonby-code">4.7. Locating persons by category: <code>findpersonby</code></a></li>
+<li><a href="#sorting-persons-by-category-code-sortpersonby-code">4.8. Sorting persons by category: <code>sortpersonby</code></a></li>
+<li><a href="#deleting-a-person-code-delete-code">4.9. Deleting a person : <code>delete</code></a></li>
+<li><a href="#selecting-a-person-code-select-code">4.10. Selecting a person : <code>select</code></a></li>
+<li><a href="#adding-a-tuition-task-code-addtuition-code">4.11. Adding a tuition task: <code>addtuition</code></a></li>
+<li><a href="#adding-a-personal-task-code-addtask-code">4.12. Adding a personal task: <code>addtask</code></a></li>
+<li><a href="#listing-all-tasks-code-listtask-code">4.13. Listing all tasks : <code>listtask</code></a></li>
 <li><a href="#deleting-a-task-code-deletetask-code">4.14. Deleting a task: <code>deletetask</code></a></li>
 <li><a href="#locating-tasks-by-category-code-findtaskby-code">4.15. Locating tasks by category: <code>findtaskby</code></a></li>
 <li><a href="#sorting-tasks-by-category-code-sorttaskby-code">4.16. Sorting tasks by category: <code>sorttaskby</code></a></li>
@@ -118,7 +118,7 @@ This app will not work with earlier versions of Java 8.
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/Ui.png" alt="Ui" width="790">
+<img src="images/Ui_with_overview.jpg" alt="Ui with overview" width="400">
 </div>
 </div>
 <div class="admonitionblock note">
@@ -345,20 +345,7 @@ Format: <code>l</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-tasks-code-listtask-code"><a class="link" href="#listing-all-tasks-code-listtask-code">4.5. Listing all tasks : <code>listTask</code></a></h3>
-<div class="paragraph">
-<p>Shows a list of all tasks in the task list.<br>
-Using Command Word:<br>
-Format: <code>listTask</code><br>
-Using Command Alias:<br>
-Format: <code>lt</code><br>
-The purpose of the listTask command is to regenerate<br>
-the complete list of tasks for a user in the event that<br>
-only a specific set of tasks were displayed.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="listing-all-tutees-code-listtutee-code"><a class="link" href="#listing-all-tutees-code-listtutee-code">4.6. Listing all tutees : <code>listtutee</code></a></h3>
+<h3 id="listing-all-tutees-code-listtutee-code"><a class="link" href="#listing-all-tutees-code-listtutee-code">4.5. Listing all tutees : <code>listtutee</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all tutees in the address book.<br>
 Using Command Word:<br>
@@ -366,7 +353,7 @@ Format: <code>listtutee</code><br></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">4.7. Editing a person : <code>edit</code></a></h3>
+<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">4.6. Editing a person : <code>edit</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing person&#8217;s detail in the address book.<br>
 Using Command Word:<br>
@@ -424,7 +411,7 @@ Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all 
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-persons-by-category-code-findpersonby-code"><a class="link" href="#locating-persons-by-category-code-findpersonby-code">4.8. Locating persons by category: <code>findpersonby</code></a></h3>
+<h3 id="locating-persons-by-category-code-findpersonby-code"><a class="link" href="#locating-persons-by-category-code-findpersonby-code">4.7. Locating persons by category: <code>findpersonby</code></a></h3>
 <div class="paragraph">
 <p>Finds persons or tutees whose specified category contain any of the given keywords.<br>
 Using Command Word:<br>
@@ -499,7 +486,7 @@ Lists all tutee with grade <code>B</code> and <code>B+</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-persons-by-category-code-sortpersonby-code"><a class="link" href="#sorting-persons-by-category-code-sortpersonby-code">4.9. Sorting persons by category: <code>sortpersonby</code></a></h3>
+<h3 id="sorting-persons-by-category-code-sortpersonby-code"><a class="link" href="#sorting-persons-by-category-code-sortpersonby-code">4.8. Sorting persons by category: <code>sortpersonby</code></a></h3>
 <div class="paragraph">
 <p>Sorts your displayed contact list according to a specified category in ascending order (lexicographically).<br>
 Using Command Word:<br>
@@ -563,7 +550,7 @@ sorts by name lexicographically.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">4.10. Deleting a person : <code>delete</code></a></h3>
+<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">4.9. Deleting a person : <code>delete</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified person from the address book.<br>
 Using Command Word:<br>
@@ -607,7 +594,7 @@ Deletes the 1st person in the results of the <code>f</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">4.11. Selecting a person : <code>select</code></a></h3>
+<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">4.10. Selecting a person : <code>select</code></a></h3>
 <div class="paragraph">
 <p>Selects the person identified by the index number used in the last person listing.<br>
 Using Command Word:<br>
@@ -651,7 +638,7 @@ Selects the 1st person in the results of the <code>f</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-tuition-task-code-addtuition-code"><a class="link" href="#adding-a-tuition-task-code-addtuition-code">4.12. Adding a tuition task: <code>addtuition</code></a></h3>
+<h3 id="adding-a-tuition-task-code-addtuition-code"><a class="link" href="#adding-a-tuition-task-code-addtuition-code">4.11. Adding a tuition task: <code>addtuition</code></a></h3>
 <div class="paragraph">
 <p>Adds a task to TuitionConnect&#8217;s schedule<br>
 Using Command Word:<br>
@@ -810,7 +797,7 @@ for more information about Tutee.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-personal-task-code-addtask-code"><a class="link" href="#adding-a-personal-task-code-addtask-code">4.13. Adding a personal task: <code>addtask</code></a></h3>
+<h3 id="adding-a-personal-task-code-addtask-code"><a class="link" href="#adding-a-personal-task-code-addtask-code">4.12. Adding a personal task: <code>addtask</code></a></h3>
 <div class="paragraph">
 <p>Adds a personal task to the TuitionConnect schedule<br>
 Using Command Word:<br>
@@ -835,6 +822,19 @@ Format: `addtask DATE TIME DURATION [DESCRIPTION]+</p>
 <p><code>addtask 31/12/2018 16:00 0h30m</code></p>
 </li>
 </ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-all-tasks-code-listtask-code"><a class="link" href="#listing-all-tasks-code-listtask-code">4.13. Listing all tasks : <code>listtask</code></a></h3>
+<div class="paragraph">
+<p>Shows a list of all tasks in the task list.<br>
+Using Command Word:<br>
+Format: <code>listtask</code><br>
+Using Command Alias:<br>
+Format: <code>lt</code><br>
+The purpose of the listtask command is to regenerate<br>
+the complete list of tasks for a user in the event that<br>
+only a specific set of tasks were displayed.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1390,6 +1390,7 @@ e.g.<code>select 2</code><br>
 e.g. <code>addtuition 1 10/05/2018 12:00 1h30m Calculus homework page 24</code><br>
 * <strong>Add Task</strong> : 'add DATE TIME DURATION [DESCRIPTION]<br>
 e.g. <code>addtask 10/05/2018 12:00 1h30m Going out with friends</code><br>
+* <strong>List Task</strong> : 'listtask`<br>
 * <strong>Delete Task</strong> : 'delete TASK_INDEX`<br>
 e.g. <code>delete 1</code><br>
 * <strong>Find Task By</strong> : findtaskby CATEGORY FIND_TYPE KEYWORD [MORE_KEYWORDS]`<br>
@@ -1414,6 +1415,7 @@ e.g. <code>e 2 n/James Lee e/jameslee@example.com</code><br>
 * <strong>Find Person By</strong> : f CATEGORY KEYWORD [MORE_KEYWORDS]`<br>
 e.g. <code>f name Jake Doe</code><br>
 * <strong>List</strong> : <code>l</code><br>
+* <strong>ListTask</strong> : <code>lt</code><br>
 * <strong>Help</strong> : <code>help</code><br>
 * <strong>Select</strong> : <code>s INDEX</code><br>
 e.g.<code>s 2</code><br>
@@ -1426,7 +1428,7 @@ e.g.<code>s 2</code><br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 09:58:54 UTC
+Last updated 2018-04-14 23:36:43 UTC
 </div>
 </div>
 </body>
