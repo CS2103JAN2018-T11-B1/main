@@ -58,7 +58,6 @@
 <li><a href="#complete-task-code-coming-in-v2-0-code">4.27. Complete task <code>[coming in v2.0]</code></a></li>
 <li><a href="#edit-task-code-coming-in-v2-0-code">4.28. Edit task <code>[coming in v2.0]</code></a></li>
 <li><a href="#view-contact-address-on-google-map-code-coming-in-v2-0-code">4.29. View contact address on Google map <code>[coming in v2.0]</code></a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">4.30. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">5. FAQ</a></li>
@@ -288,16 +287,26 @@ Format: <code>addtutee n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS s/SUBJECT g/GRADE
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-A tutee can have any number of tags (including 0)
+<div class="ulist">
+<ul>
+<li>
+<p>A tutee can have any number of tags (including 0)</p>
+</li>
+<li>
+<p>Special character in grade can be anything since different institution may use different grading system.<br>
+i.e. B+, B3, B$, B# etc are all valid</p>
+</li>
+</ul>
+</div>
 </td>
 </tr>
 </table>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock warning">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
 <div class="ulist">
@@ -307,10 +316,6 @@ A tutee can have any number of tags (including 0)
 </li>
 <li>
 <p>All details except tag MUST be added</p>
-</li>
-<li>
-<p>Special character in grade can be anything since different institution may use different grading system.<br>
-i.e. B+, B3, B$, B# etc are all valid</p>
 </li>
 </ul>
 </div>
@@ -338,7 +343,7 @@ i.e. B+, B3, B$, B# etc are all valid</p>
 <div class="sect2">
 <h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">4.4. Listing all persons : <code>list</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all persons in the address book.<br>
+<p>Shows a list of all contacts in the address book.<br>
 Using Command Word:<br>
 Format: <code>list</code><br>
 Using Command Alias:<br>
@@ -369,12 +374,38 @@ Format: <code>listtutee</code><br></p>
 <div class="sect2">
 <h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">4.7. Editing a person : <code>edit</code></a></h3>
 <div class="paragraph">
-<p>Edits an existing person&#8217;s detail in the address book.<br>
+<p>Edits existing contact&#8217;s details in the address book.<br>
 Using Command Word:<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
+Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [s/SUBJECT] [s/SUBJECT] [g/GRADE] [edu/EDUCATION_LEVEL] [sch/SCHOOL] [t/TAG]&#8230;&#8203;</code><br>
 Using Comamnd Alias:<br>
-Format: <code>e INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br></p>
+Format: <code>e INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [s/SUBJECT] [s/SUBJECT] [g/GRADE] [edu/EDUCATION_LEVEL] [sch/SCHOOL] [t/TAG]&#8230;&#8203;</code><br></p>
 </div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Keyword</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">edit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To call the edit command</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INDEX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Index number shown in the last person listing. It <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INDEX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The contact at the specified <code>INDEX</code> will be edited</p></td>
+</tr>
+</tbody>
+</table>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -385,22 +416,92 @@ Format: <code>e INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the last person listing. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>"Tutee" tag is specific to tutee only and will never be removed.</p>
 </li>
 <li>
-<p>At least one of the optional fields must be provided.</p>
+<p>Remove all the person&#8217;s tags: type <code>t/</code> without specifying any tags after it.</p>
 </li>
 <li>
-<p>Existing values will be updated to the input values.</p>
+<p>Remove all the tutee&#8217;s tags except "Tutee" tag: type <code>t/</code> without specifying any tags after it OR type <code>t/tutee</code> (this includes other variation of case letters for tutee such as "TUTEE", "TuteE" etc).</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><span class="underline"><strong>Valid Details to edit for each type of contact:</strong></span></p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Person</th>
+<th class="tableblock halign-left valign-top">Tutee</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NAME</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NAME</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PHONE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PHONE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EMAIL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EMAIL</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ADDRESS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ADDRESS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">---</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SUBJECT</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">---</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GRADE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">---</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EDUCATION_LEVEL</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">---</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SCHOOL</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>At least one of the valid optional fields must be provided.</p>
 </li>
 <li>
-<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
+<p>Existing information will be updated to the new information.</p>
 </li>
 <li>
-<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
+<p>When editing tags, the existing tags of the contact will be removed (Except "Tutee" tag) i.e adding of tags is not cumulative.</p>
 </li>
 <li>
-<p>This command is able to edit the general details of a tutee (name, phone, email, address and tags). However, it is unable to edit tutee&#8217;s details (subject, grade, education level, school and tutee tag).</p>
+<p>Manual adding of "Tutee" tag to a person is not allowed (this includes other variation of case letters for tutee such as "tutee", "TuTeE" etc)</p>
+</li>
+<li>
+<p>Editing of subject, grade, education level and school is not allowed for person</p>
 </li>
 </ul>
 </div>
@@ -415,11 +516,11 @@ Format: <code>e INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8
 <ul>
 <li>
 <p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
-Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
+Edits the phone number and email address of the 1st contact to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
 </li>
 <li>
-<p><code>e 2 n/Betsy Crower t/</code><br>
-Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
+<p><code>e 2 n/Betsy Crower sch/JohnDoe Secondary t/</code><br>
+Edits the name of the 2nd contact (a tutee) to be <code>Betsy Crower</code>, her school to <code>JohnDoe Secondary</code> and clears all existing tags (except "Tutee" tag).</p>
 </li>
 </ul>
 </div>
@@ -1364,12 +1465,6 @@ View the amount that has to be paid by a tutee.</p>
 <p>View the location of a specific contact&#8217;s address on google map and the shortest route from the current location will be displayed.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">4.30. Encrypting data files <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -1393,7 +1488,7 @@ e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1
 * <strong>Clear</strong> : <code>clear</code><br>
 * <strong>Delete</strong> : <code>delete PERSON_INDEX</code><br>
 e.g. <code>delete 3</code><br>
-* <strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
+* <strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [s/SUBJECT] [s/SUBJECT] [g/GRADE] [edu/EDUCATION_LEVEL] [sch/SCHOOL] [t/TAG]&#8230;&#8203;</code><br>
 e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code><br>
 * <strong>Find Person By</strong> : findpersonby CATEGORY KEYWORD [MORE_KEYWORDS]`<br>
 e.g. <code>findpersonby name Jake Doe</code><br>
@@ -1428,7 +1523,7 @@ e.g. <code>a n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 123
 * <strong>Clear</strong> : <code>c</code><br>
 * <strong>Delete</strong> : <code>d INDEX</code><br>
 e.g. <code>d 3</code><br>
-* <strong>Edit</strong> : <code>e INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
+* <strong>Edit</strong> : <code>e INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [s/SUBJECT] [s/SUBJECT] [g/GRADE] [edu/EDUCATION_LEVEL] [sch/SCHOOL] [t/TAG]&#8230;&#8203;</code><br>
 e.g. <code>e 2 n/James Lee e/jameslee@example.com</code><br>
 * <strong>Find Person By</strong> : f CATEGORY KEYWORD [MORE_KEYWORDS]`<br>
 e.g. <code>f name Jake Doe</code><br>
@@ -1450,7 +1545,7 @@ e.g.<code>s 2</code><br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 08:13:07 UTC
+Last updated 2018-04-15 08:14:35 UTC
 </div>
 </div>
 </body>
