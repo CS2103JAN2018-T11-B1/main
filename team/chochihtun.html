@@ -392,9 +392,9 @@ Year view is unable to display all the months due to third party software constr
 <div class="sect4">
 <h5 id="reason-for-implementation"><a class="link" href="#reason-for-implementation">Reason for Implementation</a></h5>
 <div class="paragraph">
-<p>As the user of this application is the tutor, he or she will need to add the tutees' contact details.
-Since a tutee contains more details specific to them compared to a non-tutee, tutee contacts should not be mixed with the non-tutee contacts so that all the contacts are organized and can be managed easily.
-Therefore, AddTuteeCommand is used to add only the tutees' contact details.</p>
+<p>As the user of this application is a private tutor, he or she will need to add the <a href="#tutee">tutees'</a> contact details.
+Since a tutee contains more details specific to them compared to a person, tutee contacts should not be mixed with the <a href="#person">person</a> contacts so that all the contacts are organized and can be managed easily.
+Therefore, AddTuteeCommand is used to add only the <a href="#tutee-details">tutees' details</a>.</p>
 </div>
 </div>
 <div class="sect4">
@@ -433,7 +433,7 @@ This allows AddTuteeCommand to use or override the state saving codes inside the
 </div>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the addtutee operation works:</p>
+<p>The following <span class="underline"><strong>sequence diagram</strong></span> shows how the addtutee operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -442,16 +442,16 @@ This allows AddTuteeCommand to use or override the state saving codes inside the
 </div>
 <div class="paragraph">
 <p>As shown in the sequence diagram, after Tutee object has been created, it is being passed to Model. Model manager will add the Tutee object to the person list in TuitionConnect.
-By having a combined list of tutee and non-tutee, we can manage the contacts using one command, such as delete command, instead of having 1 command for tutee and 1 command for non-tutee.
+By having a combined list of tutee and person, we can manage the contacts using one command, such as delete command, instead of having 1 command for tutee and 1 command for person.
 The combined list is achieved through the use of inheritance, whereby Tutee class inherits the Person class as shown in the diagram below.</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="../images/TuteeClassDiagram.jpg" alt="TuteeClassDiagram" width="800"></span></p>
+<p><span class="image"><img src="../images/TuteeClassDiagram.jpg" alt="TuteeClassDiagram" width="600" height="400"></span></p>
 </div>
 <div class="paragraph">
 <p>Since a tutee is a person, we can carried out inheritance by extending the Person class.
 Both Tutee and Person class objects have the same fields such as Name, Phone, Email and Address.
-However, Tutee class object has additional fields such as Subject, Grade, EducationLevel and School, which are irrelevant to a Person class object (non-tutee).</p>
+However, Tutee class object has additional details such as Subject, Grade, EducationLevel and School, which are irrelevant to a Person class object.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -460,10 +460,16 @@ However, Tutee class object has additional fields such as Subject, Grade, Educat
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the person already exists, either as tutee or non-tutee, in the contact list, DuplicatePersonException will be thrown.
+If the person already exists, either as tutee or person, in the contact list, DuplicatePersonException will be thrown.
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>The following <span class="underline"><strong>activity diagram</strong></span> shows the workflow when adding a tutee.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/AddTuteeActivityDiagram.png" alt="AddTuteeActivityDiagram" width=""800"></span></p>
 </div>
 </div>
 </div>
@@ -476,10 +482,10 @@ If the person already exists, either as tutee or non-tutee, in the contact list,
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Non-tutee will not have any detail that is specific to tutee only. This saves memory especially when there are numerous non-tutee objects.</p>
+<p>Pros: Person will not have any detail that is specific to tutee only. This saves memory especially when there are numerous person objects.</p>
 </li>
 <li>
-<p>Cons: A tutee cannot simply convert into a non-tutee when tutor stops teaching him/her. Tutor has to delete the tutee and add him/her again as a non-tutee.</p>
+<p>Cons: A tutee cannot simply convert into a person object when tutor stops teaching him/her. Tutor has to delete the tutee and add him/her again as a person.</p>
 </li>
 </ul>
 </div>
@@ -492,7 +498,7 @@ If the person already exists, either as tutee or non-tutee, in the contact list,
 <p>Pros: Features can be implemented easily without modifying much to the existing code.</p>
 </li>
 <li>
-<p>Cons: Non-tutee object creates unrelated field objects such as "subject" and "school" and these objects will waste the memory space. This problem will be significant when there are a lot of non-tutee objects.</p>
+<p>Cons: Person object creates unrelated field objects such as "subject" and "school" and these objects will waste the memory space. This problem will be significant when there are a lot of person objects.</p>
 </li>
 </ul>
 </div>
@@ -506,7 +512,7 @@ If the person already exists, either as tutee or non-tutee, in the contact list,
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 08:14:35 UTC
+Last updated 2018-04-15 08:33:01 UTC
 </div>
 </div>
 </body>
