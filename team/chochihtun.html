@@ -25,16 +25,9 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>TuitionConnect is a desktop address book application used by private tuition teacher.<br></p>
-</div>
-<div class="paragraph">
-<p>TuitionConnect aims to help the tutors to manage their busy schedule more efficiently and effectively.<br></p>
-</div>
-<div class="paragraph">
-<p>TuitionConnect has many functionality catered to the tutors - adding and deleting a tutee, creating a schedule, rescheduling and many more.<br></p>
-</div>
-<div class="paragraph">
-<p>The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 20 kLoC.</p>
+<p>TuitionConnect is a desktop address book application used by private tuition teacher.
+It aims to help the tutors to manage their busy schedule more efficiently and effectively.
+The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 20 kLoC.</p>
 </div>
 </div>
 </div>
@@ -44,17 +37,11 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: integrated <strong>CalendarFX</strong> into the application</p>
+<p><strong>Major enhancement</strong>: integrated <a href="https://github.com/CS2103JAN2018-T11-B1/main/pull/95"><strong>CalendarFX</strong></a> into the application</p>
 <div class="ulist">
 <ul>
 <li>
 <p>What it does: has a calendar that reflects all scheduling commands that the user inputs.</p>
-</li>
-<li>
-<p>Justification: This feature enhances the product significantly because it improves the user interface. For instance, readability of the schedule is better as user can view it for the year, month, week or day.</p>
-</li>
-<li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required integrations with existing commands and UI.</p>
 </li>
 <li>
 <p>Credits: [<a href="https://github.com/dlemmermann/CalendarFX">CalendarFX</a>]</p>
@@ -67,10 +54,13 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Added alias for each command: <a href="https://github.com/CS2103JAN2018-T11-B1/main/pull/10">#10</a></p>
+<p>Constructed classes such as PersonalTask, TuitionTask, Tutee, Subject, Grade, EducationLevel, School and relevant methods to support task and tutee management commands.</p>
 </li>
 <li>
-<p>Created Tutee, Subject, Grade, EducationLevel and School classes to support tutee management related commands. Added addtutee command to add a new tutee into TuitionConnect application. <a href="https://github.com/CS2103JAN2018-T11-B1/main/pull/62">#62</a></p>
+<p>Modified edit command to be able to edit tutee&#8217;s details.</p>
+</li>
+<li>
+<p>Added addtutee command to add a new tutee into TuitionConnect application. <a href="https://github.com/CS2103JAN2018-T11-B1/main/pull/62">#62</a></p>
 </li>
 <li>
 <p>Drafted a TuitionConnect UI theme and revamped the layout of the UI.</p>
@@ -86,59 +76,16 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Project management:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Created product releases <code>v1.3</code> - <code>v1.5rc</code> jar files (3 releases) on GitHub</p>
+<p>Drafted and managed user guide in developer guide and on GitHub: <a href="https://github.com/CS2103JAN2018-T11-B1/main/pull/106">#106</a></p>
 </li>
 <li>
-<p>Managed user stories in developer guide and on GitHub</p>
+<p>Responsible for issues and milestones on GitHub</p>
 </li>
 <li>
 <p>Set up auto publishing of documentation on GitHub</p>
 </li>
-</ul>
-</div>
-</li>
 <li>
-<p>Documentation:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Restructure README and AboutUs to fit into the context of TuitionConnect: <a href="https://github.com/CS2103JAN2018-T11-B1/main/pull/53">#53</a></p>
-</li>
-<li>
-<p>Wrote an overview of TuitionConnect in user guide and features to be implemented in developer guide: <a href="https://github.com/CS2103JAN2018-T11-B1/main/pull/63">#63</a></p>
-</li>
-<li>
-<p>Drafted the user stories in developer guide: <a href="https://github.com/CS2103JAN2018-T11-B1/main/pull/42">#42</a>, <a href="https://github.com/CS2103JAN2018-T11-B1/main/pull/106">#106</a></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Community:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/CS2103JAN2018-T11-B1/main/pull/43">#43</a>, <a href="https://github.com/CS2103JAN2018-T11-B1/main/pull/44">#44</a>, <a href="https://github.com/CS2103JAN2018-T11-B1/main/pull/48">#48</a>, <a href="https://github.com/CS2103JAN2018-T11-B1/main/pull/94">#94</a></p>
-</li>
-<li>
-<p>Reported several bugs for other teams in class: <a href="https://github.com/CS2103JAN2018-W10-B3/main/issues/112">Endless Loop</a>, <a href="https://github.com/CS2103JAN2018-W10-B3/main/issues/113">Wrong add command example</a>, <a href="https://github.com/CS2103JAN2018-W10-B3/main/issues/119">Wrong userconfig example</a>, <a href="https://github.com/CS2103JAN2018-W10-B3/main/issues/117">Exception not handled</a></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (CalendarFX) to the project (<a href="https://github.com/CS2103JAN2018-T11-B1/main/pull/95">#95</a>)</p>
-</li>
-</ul>
-</div>
+<p>Reported several bugs for other teams in class: (Example: [Endless Loop]<a href="https://github.com/CS2103JAN2018-W10-B3/main/issues/112" class="bare">https://github.com/CS2103JAN2018-W10-B3/main/issues/112</a>)</p>
 </li>
 </ul>
 </div>
@@ -236,6 +183,164 @@ i.e. B+, B3, B$, B# etc are all valid</p>
 </li>
 <li>
 <p><code>addtutee n/Dickson ee p/91234567 e/dickson@exmaple.com a/Dickson street, block 456, #02-02 s/english g/f9 edu/primary sch/Newgate Primary School</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">Editing a person : <code>edit</code></a></h3>
+<div class="paragraph">
+<p>Edits existing contact&#8217;s details in the address book.<br>
+Using Command Word:<br>
+Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [s/SUBJECT] [s/SUBJECT] [g/GRADE] [edu/EDUCATION_LEVEL] [sch/SCHOOL] [t/TAG]&#8230;&#8203;</code><br>
+Using Comamnd Alias:<br>
+Format: <code>e INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [s/SUBJECT] [s/SUBJECT] [g/GRADE] [edu/EDUCATION_LEVEL] [sch/SCHOOL] [t/TAG]&#8230;&#8203;</code><br></p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Keyword</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">edit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To call the edit command</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INDEX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Index number shown in the last person listing. It <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INDEX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The contact at the specified <code>INDEX</code> will be edited</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>"Tutee" tag is specific to tutee only and will never be removed.</p>
+</li>
+<li>
+<p>Remove all the person&#8217;s tags: type <code>t/</code> without specifying any tags after it.</p>
+</li>
+<li>
+<p>Remove all the tutee&#8217;s tags except "Tutee" tag: type <code>t/</code> without specifying any tags after it OR type <code>t/tutee</code> (this includes other variation of case letters for tutee such as "TUTEE", "TuteE" etc).</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><span class="underline"><strong>Valid Details to edit for each type of contact:</strong></span></p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Person</th>
+<th class="tableblock halign-left valign-top">Tutee</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NAME</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NAME</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PHONE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PHONE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EMAIL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EMAIL</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ADDRESS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ADDRESS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">---</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SUBJECT</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">---</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GRADE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">---</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EDUCATION_LEVEL</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">---</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SCHOOL</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TAG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TAG</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>At least one of the valid optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing information will be updated to the new information.</p>
+</li>
+<li>
+<p>When editing tags, the existing tags of the contact will be removed (Except "Tutee" tag) i.e adding of tags is not cumulative.</p>
+</li>
+<li>
+<p>Manual adding of "Tutee" tag to a person is not allowed (this includes other variation of case letters for tutee such as "tutee", "TuTeE" etc)</p>
+</li>
+<li>
+<p>Editing of subject, grade, education level and school is not allowed for person</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
+Edits the phone number and email address of the 1st contact to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
+</li>
+<li>
+<p><code>e 2 n/Betsy Crower sch/JohnDoe Secondary t/</code><br>
+Edits the name of the 2nd contact (a tutee) to be <code>Betsy Crower</code>, her school to <code>JohnDoe Secondary</code> and clears all existing tags (except "Tutee" tag).</p>
 </li>
 </ul>
 </div>
@@ -512,7 +617,7 @@ If the person already exists, either as tutee or person, in the contact list, Du
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 09:24:22 UTC
+Last updated 2018-04-15 11:13:44 UTC
 </div>
 </div>
 </body>
