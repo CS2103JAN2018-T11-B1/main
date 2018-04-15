@@ -446,15 +446,15 @@ sorts tasks by month in increasing order.</p>
 </div>
 <div class="sect2">
 <h3 id="sort-person-command"><a class="link" href="#sort-person-command">Sort Person Command</a></h3>
-<div class="sect4">
-<h5 id="reason-for-implementation"><a class="link" href="#reason-for-implementation">Reason for Implementation</a></h5>
+<div class="sect3">
+<h4 id="reason-for-implementation"><a class="link" href="#reason-for-implementation">Reason for Implementation</a></h4>
 <div class="paragraph">
 <p>As the amount of contacts stored grows, it would be harder to browse the address book. Hence, Sort Person Command is created
 to ease users&#8217;s experience in organizing their address book.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="how-it-is-implemented"><a class="link" href="#how-it-is-implemented">How it is implemented</a></h5>
+<div class="sect3">
+<h4 id="how-it-is-implemented"><a class="link" href="#how-it-is-implemented">How it is implemented</a></h4>
 <div class="paragraph">
 <p>The following sequence diagram shows the general idea of how sort person command works:</p>
 </div>
@@ -474,8 +474,8 @@ calls the sortFilteredPersonList() method which utilises a SortedList object to 
 </div>
 <div class="sect2">
 <h3 id="natural-language-identifier"><a class="link" href="#natural-language-identifier">Natural Language Identifier</a></h3>
-<div class="sect4">
-<h5 id="reason-for-implementation-2"><a class="link" href="#reason-for-implementation-2">Reason for Implementation</a></h5>
+<div class="sect3">
+<h4 id="reason-for-implementation-2"><a class="link" href="#reason-for-implementation-2">Reason for Implementation</a></h4>
 <div class="paragraph">
 <p>Figuring out the exact date for a tuition appointment can be tedious in some extent. Tutors would need to flip over a calendar, or to perform some
 operations in the context of this app. Based on this concern, as our goal is to simplify the life of tutor,
@@ -483,14 +483,14 @@ we feel the importance of introducing a feature where tutors are able to set a t
 but also by using common terms such as: <code>today</code>, <code>next month</code>, etc.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="current-implementation-limitation"><a class="link" href="#current-implementation-limitation">Current Implementation Limitation</a></h5>
+<div class="sect3">
+<h4 id="current-implementation-limitation"><a class="link" href="#current-implementation-limitation">Current Implementation Limitation</a></h4>
 <div class="paragraph">
 <p>In the current implementation, common terms (or Natural Languages) are only identifiable by the <code>Find Task</code> command parser.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="how-it-is-implemented-2"><a class="link" href="#how-it-is-implemented-2">How it is implemented</a></h5>
+<div class="sect3">
+<h4 id="how-it-is-implemented-2"><a class="link" href="#how-it-is-implemented-2">How it is implemented</a></h4>
 <div class="paragraph">
 <p>A class named NaturalLanguageIdentifier applys the singleton design pattern as the class stores a private attribute that records the current time of the system clock.
 As this reference time must be the same throughout the entire execution of a command, this class should only be instantiated once.</p>
@@ -515,7 +515,7 @@ is treated as a valid natural language.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 08:33:01 UTC
+Last updated 2018-04-15 09:22:59 UTC
 </div>
 </div>
 </body>
