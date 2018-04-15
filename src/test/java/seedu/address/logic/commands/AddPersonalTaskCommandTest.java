@@ -28,8 +28,8 @@ import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.Task;
-import seedu.address.model.person.exceptions.TimingClashException;
 import seedu.address.model.personal.PersonalTask;
+import seedu.address.model.task.exceptions.TimingClashException;
 import seedu.address.testutil.ModelStub;
 import seedu.address.testutil.TaskBuilder;
 

@@ -8,9 +8,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
 
 import seedu.address.logic.commands.AddPersonalTaskCommand;
+import seedu.address.logic.parser.exceptions.DurationParseException;
 import seedu.address.logic.parser.exceptions.ParseException;
 
-import seedu.address.model.person.exceptions.DurationParseException;
 import seedu.address.model.personal.PersonalTask;
 
 //@@author yungyung04

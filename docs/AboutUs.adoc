@@ -20,7 +20,7 @@ Responsibilities: Storage + Scheduling and Tracking
 
 === Cho Chih Tun
 image::chochihtun.jpg[width="150", align="left"]
-{empty}[http://github.com/ChoChihTun[github]] [https://chochihtun.github.io/Profile/[portfolio]]
+{empty}[http://github.com/ChoChihTun[github]] [<<chochihtun#, portfolio>>]
 
 Role: Developer +
 Responsibilities: UI + Code Quality
