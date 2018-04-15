@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
+<title>Anas Shakra - Project Portfolio</title>
+<link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Anas Shakra - Project Portfolio</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="project-tuition-connect-tc"><a class="link" href="#project-tuition-connect-tc">PROJECT: Tuition Connect (TC)</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>TuitionConnect is a desktop address book application used by private tuition teacher.<br></p>
+</div>
+<div class="paragraph">
+<p>TuitionConnect aims to help the tutors to manage their busy schedule more efficiently and effectively.<br></p>
+</div>
+<div class="paragraph">
+<p>TuitionConnect has many functionality catered to the tutors - adding and deleting a tutee, creating a schedule, rescheduling and many more.<br></p>
+</div>
+<div class="paragraph">
+<p>The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 20 kLoC.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: Integrated <strong>a new Task class into the application</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: The addressbook application is now able to interact, in various ways, with the newly created task object. In doing so, tutors are capable of generating and manipulating their various appointments at will. This enhancment inclues the ability to store the task object in the addressbook.</p>
+</li>
+<li>
+<p>Justification: This feature forms the foundation of the application as the app is based on a tutor&#8217;s ability to create and interact with a task object in an addressbook environemnt.</p>
+</li>
+<li>
+<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to almost every aspect of the codebase.</p>
+</li>
+<li>
+<p>Credits: While no outside code was used, it was useful to look over how the Person class interacted with the addressbook and see how that can be adjusted to allow the pre-existing codebase to accomodate the Task object.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: added a listTask command that allows the user to view all tasks stored in the addressbook.</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed releases <code>v1.2</code> - <code>v1.4</code> (3 releases) on GitHub</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrote additional tests for existing features (Pull requests <a href="https://github.com">#68</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#68</a></p>
+</li>
+<li>
+<p>Updated Developer Guide to explain features: <a href="https://github.com">#68</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#128</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="listing-all-tasks-code-listtask-code"><a class="link" href="#listing-all-tasks-code-listtask-code">Listing all tasks : <code>listTask</code></a></h3>
+<div class="paragraph">
+<p>Shows a list of all tasks in the task list.<br>
+Using Command Word:<br>
+Format: <code>listtask</code><br>
+Using Command Alias:<br>
+Format: <code>lt</code><br>
+The purpose of the listTask command is to regenerate<br>
+the complete list of tasks for a user in the event that<br>
+only a specific set of tasks were displayed.
+=== Listing all tasks : <code>listtask</code>
+Shows a list of all tasks in the task list.<br>
+Using Command Word:<br>
+Format: <code>listtask</code><br>
+Using Command Alias:<br>
+Format: <code>lt</code><br>
+The purpose of the listtask command is to regenerate<br>
+the complete list of tasks for a user in the event that<br>
+only a specific set of tasks were displayed.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Integrating the Task class into the Addressbook</strong> [Major Enhancement]</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The Task class forms the foundation of TuitionConnect as it allows the user to manage their various
+"tasks". The task class comes in two forms, a personal task and a tuition task. The following is the
+interface:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">interface</span> <span class="class">Task</span> {
+    <span class="comment">// Consider changing the location of the three string values below</span>
+
+    <span class="predefined-type">String</span> MESSAGE_DESCRIPTION_CONSTRAINTS = <span class="string"><span class="delimiter">&quot;</span><span class="content">Tasks Should have a non-empty description</span><span class="delimiter">&quot;</span></span>;
+
+    <span class="predefined-type">String</span> MESSAGE_DURATION_CONSTRAINTS = <span class="string"><span class="delimiter">&quot;</span><span class="content">Duration must be a non-null value</span><span class="delimiter">&quot;</span></span>;
+
+    <span class="predefined-type">String</span> MESSAGE_DATETIME_CONSTRAINTS = <span class="string"><span class="delimiter">&quot;</span><span class="content">Date and time must be a non-null value</span><span class="delimiter">&quot;</span></span>;
+
+    LocalDateTime getTaskDateTime();
+
+    <span class="predefined-type">String</span> getStringTaskDateTime();
+
+    <span class="predefined-type">String</span> getDescription();
+
+    <span class="predefined-type">String</span> getDuration();
+
+    Entry getEntry();
+}</code></pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>listTask Command</strong> [Minor Enhancement]</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This feature allows the user to see all tasks stored in the addressbook. It is useful when a user has entered a command
+that displays only a single task. If the user then wants to see other tasks, he/she can input listTask
+and display the tasks again.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2018-04-15 07:47:37 UTC
+</div>
+</div>
+</body>
+</html>
