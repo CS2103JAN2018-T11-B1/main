@@ -120,7 +120,7 @@ Also, allows users to browse through their schedule with ease using the find and
 </table>
 <div class="imageblock">
 <div class="content">
-<img src="../images/Ui_with_overview.jpg" alt="Ui with overview" width="400">
+<img src="../images/Ui_with_overview.jpg" alt="Ui with overview" width="650">
 </div>
 </div>
 </div>
@@ -326,7 +326,9 @@ for more information about Tutee.</p>
 <div class="paragraph">
 <p>Sorts your displayed task list according to a specified category in ascending order.<br>
 Using Command Word:<br>
-Format: <code>sorttaskby CATEGORY</code><br></p>
+Format: <code>sorttaskby CATEGORY</code><br>
+Using Command Alias:<br>
+Format: <code>stb CATEGORY</code><br></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -387,37 +389,6 @@ sorts tasks by month in increasing order.</p>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="sort-person-command"><a class="link" href="#sort-person-command">Sort Person Command</a></h3>
-<div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
-<div class="sect4">
-<h5 id="reason-for-implementation"><a class="link" href="#reason-for-implementation">Reason for Implementation</a></h5>
-<div class="paragraph">
-<p>As the amount of contacts stored grows, it would be harder to browse the address book. Hence, Sort Person Command is created
-to ease users&#8217;s experience in organizing their address book.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="how-it-is-implemented"><a class="link" href="#how-it-is-implemented">How it is implemented</a></h5>
-<div class="paragraph">
-<p>The following sequence diagram shows the general idea of how sort person command works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/SortPersonSequenceDiagram.png" alt="SortPersonSequenceDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>As shown in the sequence diagram, the Logic command&#8217;s call for execution results in Sort Person command to request for a Comparator object from PersonSortUtil class.
-A comparator object is required since the sorting implementation utilizes JavaFX8&#8217;s SortedList class.
-(Refer to <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/collections/transformation/SortedList.html" class="bare">https://docs.oracle.com/javase/8/javafx/api/javafx/collections/transformation/SortedList.html</a> for more information)
-Here, PersonSortUtil class is responsible in providing a suitable comparator that matches the sorting behaviour requested by the user. Upon receiving the comparator, SortPersonCommand
-calls the sortFilteredPersonList() method which utilises a SortedList object to perform the sorting.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
 <h3 id="Design-Model"><a class="link" href="#Design-Model">Model component</a></h3>
 <div class="imageblock">
 <div class="content">
@@ -473,12 +444,78 @@ calls the sortFilteredPersonList() method which utilises a SortedList object to 
 </ul>
 </div>
 </div>
+<div class="sect2">
+<h3 id="sort-person-command"><a class="link" href="#sort-person-command">Sort Person Command</a></h3>
+<div class="sect4">
+<h5 id="reason-for-implementation"><a class="link" href="#reason-for-implementation">Reason for Implementation</a></h5>
+<div class="paragraph">
+<p>As the amount of contacts stored grows, it would be harder to browse the address book. Hence, Sort Person Command is created
+to ease users&#8217;s experience in organizing their address book.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="how-it-is-implemented"><a class="link" href="#how-it-is-implemented">How it is implemented</a></h5>
+<div class="paragraph">
+<p>The following sequence diagram shows the general idea of how sort person command works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SortPersonSequenceDiagram.png" alt="SortPersonSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>As shown in the sequence diagram, the Logic command&#8217;s call for execution results in Sort Person command to request for a Comparator object from PersonSortUtil class.
+A comparator object is required since the sorting implementation utilizes JavaFX8&#8217;s SortedList class.
+(Refer to <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/collections/transformation/SortedList.html" class="bare">https://docs.oracle.com/javase/8/javafx/api/javafx/collections/transformation/SortedList.html</a> for more information)
+Here, PersonSortUtil class is responsible in providing a suitable comparator that matches the sorting behaviour requested by the user. Upon receiving the comparator, SortPersonCommand
+calls the sortFilteredPersonList() method which utilises a SortedList object to perform the sorting.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="natural-language-identifier"><a class="link" href="#natural-language-identifier">Natural Language Identifier</a></h3>
+<div class="sect4">
+<h5 id="reason-for-implementation-2"><a class="link" href="#reason-for-implementation-2">Reason for Implementation</a></h5>
+<div class="paragraph">
+<p>Figuring out the exact date for a tuition appointment can be tedious in some extent. Tutors would need to flip over a calendar, or to perform some
+operations in the context of this app. Based on this concern, as our goal is to simplify the life of tutor,
+we feel the importance of introducing a feature where tutors are able to set a tuition appointment not only by date,
+but also by using common terms such as: <code>today</code>, <code>next month</code>, etc.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="current-implementation-limitation"><a class="link" href="#current-implementation-limitation">Current Implementation Limitation</a></h5>
+<div class="paragraph">
+<p>In the current implementation, common terms (or Natural Languages) are only identifiable by the <code>Find Task</code> command parser.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="how-it-is-implemented-2"><a class="link" href="#how-it-is-implemented-2">How it is implemented</a></h5>
+<div class="paragraph">
+<p>A class named NaturalLanguageIdentifier applys the singleton design pattern as the class stores a private attribute that records the current time of the system clock.
+As this reference time must be the same throughout the entire execution of a command, this class should only be instantiated once.</p>
+</div>
+<div class="paragraph">
+<p>This class is responsible for identifying whether a given user input is a recognizable natural language and convert it
+into the desired format when applicable. In achieving this purpose, the public methods within this class are called by
+the command parsers that inherit Address Book parser. In general, these public methods have a certain characteristic.
+These methods always take in a user&#8217;s input as parameter and either return the same input if it is not recognized as a valid natural language
+or return a processable form of the natural language. For example, given <strong>this month</strong> (a valid natural language) as user input,
+the getMonthAsString() method will return <strong>April</strong> (the current month).</p>
+</div>
+<div class="paragraph">
+<p>Valid or recognized natural languages are determined by a static list inside the NaturalLanguageIdentifier class.
+This list of Strings stores common terms used by tutors. If a given user input matches one of the terms in the list, that input
+is treated as a valid natural language.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 07:47:37 UTC
+Last updated 2018-04-15 08:13:07 UTC
 </div>
 </div>
 </body>
